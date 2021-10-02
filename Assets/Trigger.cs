@@ -13,8 +13,13 @@ public class Trigger : MonoBehaviour
     {
         if (collision.name == "Ball")
         {
-            isTriggered = !isTriggered;
-            GetComponent<SpriteRenderer>().color = isTriggered ? activatedColor : defaultColor;
+            Activate();
         }
+    }
+
+    public void Activate()
+    {
+        isTriggered = !isTriggered;
+        GetComponent<SpriteRenderer>().color = isTriggered ? activatedColor : defaultColor;
     }
 }
