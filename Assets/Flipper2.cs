@@ -8,24 +8,26 @@ public class Flipper2 : MonoBehaviour
     public float flipRotation = 60;
     public Rigidbody2D rb;
     public GameObject spriteHolder;
+    public KeyCode activationKey;
 
-    // Update is called once per frame
-    void Update()
+    private float endRotation;
+
+	private void Start()
+	{
+        endRotation = rb.transform.rotation.eulerAngles.z;
+	}
+	// Update is called once per frame
+	void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(activationKey))
         {
             StopAllCoroutines();
             StartCoroutine(FlipFlippers());
         }
-        else if (Input.GetKeyUp(KeyCode.Space))
+        else if (Input.GetKeyUp(activationKey))
         {
             StopAllCoroutines();
             StartCoroutine(ReleaseFlippers());
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            rb.SetRotation(60f);
-            spriteHolder.transform.rotation = Quaternion.Euler(0, 0, 60);
         }
     }
 
@@ -42,8 +44,8 @@ public class Flipper2 : MonoBehaviour
             spriteHolder.transform.rotation = Quaternion.Euler(0, 0, flipRotation * currentTime / totalTime);
             yield return new WaitForEndOfFrame();
         }
-        rb.SetRotation(flipRotation);
-        spriteHolder.transform.rotation = Quaternion.Euler(0, 0, flipRotation);
+        rb.SetRotation(endRotation + flipRotation);
+        spriteHolder.transform.rotation = Quaternion.Euler(0, 0, endRotation + flipRotation);
 
         yield break;
     }
@@ -60,8 +62,8 @@ public class Flipper2 : MonoBehaviour
             spriteHolder.transform.rotation = Quaternion.Euler(0, 0, flipRotation * currentTime / totalTime);
             yield return new WaitForEndOfFrame();
         }
-        rb.SetRotation(0);
-        spriteHolder.transform.rotation = Quaternion.Euler(0, 0, 0);
+        rb.SetRotation(endRotation);
+        spriteHolder.transform.rotation = Quaternion.Euler(0, 0, endRotation);
 
         yield break;
     }
