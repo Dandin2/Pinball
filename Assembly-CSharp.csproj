@@ -59,6 +59,8 @@
     <Compile Include="Assets\Bumper.cs" />
     <Compile Include="Assets\LayerEditor.cs" />
     <Compile Include="Assets\Ball.cs" />
+    <Compile Include="Assets\Bumper.cs" />
+    <Compile Include="Assets\Plunger.cs" />
     <Compile Include="Assets\HittableObject.cs" />
   </ItemGroup>
   <ItemGroup>
