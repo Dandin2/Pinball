@@ -129,7 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d06086bc499d040b08b0e09455899b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 600
+  minForce: 1000
+  maxForce: 2000
   anim: {fileID: 7636856873981005380}
   directionalTransform: {fileID: 0}
   PointsToAdd: 100
