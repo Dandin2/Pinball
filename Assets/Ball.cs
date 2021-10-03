@@ -19,6 +19,7 @@ public class Ball : MonoBehaviour
 	{
         transform.position = startingPosition;
         rb.velocity = Vector3.zero;
+        GameManager.Instance.UseLife();
     }
 
 	private void Update()
