@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,12 +7,25 @@ public class Ball : MonoBehaviour
 {
     Rigidbody2D rb => GetComponent<Rigidbody2D>();
 
-    private void Update()
+    private Vector2 startingPosition;
+
+	private void Start()
+	{
+        Debug.Log(transform.position);
+        startingPosition = transform.position;
+	}
+
+	internal void ResetPosition()
+	{
+        transform.position = startingPosition;
+        rb.velocity = Vector3.zero;
+    }
+
+	private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            transform.position = new Vector3(-250, -701);
-            rb.velocity = Vector3.zero;
+            ResetPosition();
         }
         if (rb.velocity.y > 0)
             rb.gravityScale = 50;

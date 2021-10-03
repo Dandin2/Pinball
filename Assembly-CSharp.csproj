@@ -58,8 +58,10 @@
     <Compile Include="Assets\Flipper.cs" />
     <Compile Include="Assets\LayerEditor.cs" />
     <Compile Include="Assets\Ball.cs" />
-    <Compile Include="Assets\HittableObject.cs" />
+    <Compile Include="Assets\Bumper.cs" />
     <Compile Include="Assets\Plunger.cs" />
+    <Compile Include="Assets\HittableObject.cs" />
+    <Compile Include="Assets\BallResetZone.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
