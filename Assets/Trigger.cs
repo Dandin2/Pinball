@@ -43,9 +43,13 @@ public class Trigger : MonoBehaviour
 
     public void Activate()
     {
-        isTriggered = !isTriggered;
+        bool initialActivation = !isTriggered;
+
+        isTriggered = true;
         GetComponent<SpriteRenderer>().color = isTriggered ? activatedColor : defaultColor;
-        triggerAction?.Invoke();
+
+        if (initialActivation) 
+            triggerAction?.Invoke();
     }
 }
 

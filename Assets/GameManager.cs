@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour
 		{
             bumper.gameObject.SetActive(false);
 		}
+        GameObject.Find("AreaTwo").GetComponent<AreaTwo>().Deactivate();
+        GameObject.Find("AreaThree").GetComponent<AreaTwo>().Deactivate();
     }
 
     public void ActivateQuestTwo()
@@ -54,6 +56,8 @@ public class GameManager : MonoBehaviour
         {
             bumper.gameObject.SetActive(false);
         }
+        GameObject.Find("AreaOne").GetComponent<AreaTwo>().Deactivate();
+        GameObject.Find("AreaThree").GetComponent<AreaTwo>().Deactivate();
     }
 
     public void ActivateQuestThree()
@@ -64,6 +68,8 @@ public class GameManager : MonoBehaviour
         {
             bumper.gameObject.SetActive(false);
         }
+        GameObject.Find("AreaTwo").GetComponent<AreaTwo>().Deactivate();
+        GameObject.Find("AreaOne").GetComponent<AreaTwo>().Deactivate();
     }
 
     public void DeactivateQuestOne()

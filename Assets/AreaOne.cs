@@ -19,6 +19,13 @@ public class AreaOne : MonoBehaviour
         }
     }
 
+    public void Deactivate()
+    {
+        foreach (Trigger t in QuestTriggers)
+            t.Deactivate();
+        Arrow.gameObject.SetActive(false);
+    }
+
     private void OnTriggerActivationChange(Trigger t)
     {
         if (t.isTriggered)
