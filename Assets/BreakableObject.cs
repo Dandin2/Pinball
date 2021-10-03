@@ -24,9 +24,14 @@ public class BreakableObject : MonoBehaviour
 
     public void PostBreak()
     {
-        GameObject go = Instantiate(postBreakGO);
-        go.transform.position = transform.position;
-        go.transform.localScale = new Vector3(1, 1, 1);
-        gameObject.SetActive(false);
+        if (postBreakGO != null)
+        {
+            GameObject go = Instantiate(postBreakGO);
+            go.transform.position = transform.position;
+            go.transform.localScale = new Vector3(1, 1, 1);
+            gameObject.SetActive(false);
+        }
+        else
+            GetComponent<PolygonCollider2D>().enabled = false;
     }
 }
