@@ -4042,7 +4042,7 @@ MonoBehaviour:
   RightTiltKey: 303
   bumpDistance: 25
   bumpTime: 0.3
-  Screen: {fileID: 61090735}
+  Screen: {fileID: 1938663158}
 --- !u!1001 &1966354970
 PrefabInstance:
   m_ObjectHideFlags: 0
