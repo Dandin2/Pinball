@@ -32,13 +32,19 @@ public class AreaTwo : MonoBehaviour
         {
             activatedTriggers++;
             if (activatedTriggers == QuestTriggers.Count)
+            {
                 Arrow.gameObject.SetActive(true);
+                GameManager.Instance.Border.SetObjectiveText("Ring the doorbell to start the event in your living quarter.", true);
+            }
         }
         else
         {
             activatedTriggers--;
             if (activatedTriggers < QuestTriggers.Count)
+            {
                 Arrow.gameObject.SetActive(false);
+                GameManager.Instance.Border.RemoveObjectiveText("Ring the doorbell to start the event in your living quarter.");
+            }
         }
     }
 
