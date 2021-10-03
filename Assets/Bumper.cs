@@ -10,9 +10,17 @@ public class Bumper : MonoBehaviour
 	public Transform directionalTransform;
 	public int PointsToAdd = 0;
 
+	private AudioSource audioSource;
+
+	private void Awake()
+	{
+		audioSource = GetComponent<AudioSource>();
+	}
+
 	void OnCollisionEnter2D(Collision2D collision)
 	{
 		anim.SetTrigger("Hit");
+		audioSource.Play();
 		Vector3 direction;
 		if (directionalTransform != null)
 		{

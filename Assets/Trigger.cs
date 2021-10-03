@@ -17,9 +17,11 @@ public class Trigger : MonoBehaviour
     public bool hasIndividualTrigger = false;
     public ButtonClickedEvent OnTriggerEvent;
     private Action triggerAction;
+    private AudioSource audioSource;
 
     public void SetTriggerAction(Action onTrigger)
     {
+        audioSource = GetComponent<AudioSource>();
         triggerAction = onTrigger;
     }
 
@@ -34,6 +36,7 @@ public class Trigger : MonoBehaviour
     {
         if (collision.name == "Ball")
         {
+            audioSource.Play();
             if (hasIndividualTrigger)
                 OnTriggerEvent.Invoke();
             else

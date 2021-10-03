@@ -14,9 +14,11 @@ public class Flipper2 : MonoBehaviour
     private float endRotation;
     private Coroutine activatingRoutine;
     private Coroutine deactivatingRoutine;
+    private AudioSource audioSource;
 
     private void Start()
-	{
+    {
+        audioSource = GetComponent<AudioSource>();
         endRotation = rb.transform.rotation.eulerAngles.z;
 	}
 	// Update is called once per frame
@@ -28,6 +30,7 @@ public class Flipper2 : MonoBehaviour
             {
                 StopCoroutine(activatingRoutine);
             }
+            audioSource.Play();
             activatingRoutine = StartCoroutine(FlipFlippers());
         }
         else if (Input.GetKeyUp(activationKey))
