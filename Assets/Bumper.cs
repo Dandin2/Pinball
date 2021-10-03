@@ -7,11 +7,12 @@ public class Bumper : MonoBehaviour
 	public float force;
 	public Animator anim;
 	public Transform directionalTransform;
+	public int PointsToAdd = 0;
 
 	void OnCollisionEnter2D(Collision2D collision)
 	{
 		anim.SetTrigger("Hit");
-		Vector3 direction = Vector3.zero;
+		Vector3 direction;
 		if (directionalTransform != null)
 		{
 			direction = (transform.position - directionalTransform.position).normalized;
@@ -21,5 +22,6 @@ public class Bumper : MonoBehaviour
 			direction = (collision.gameObject.transform.position - transform.position).normalized;
 		}
 		collision.gameObject.GetComponent<Rigidbody2D>().AddForce(direction * force, ForceMode2D.Impulse);
+		GameManager.Instance.UpdatePoints(PointsToAdd);
 	}
 }

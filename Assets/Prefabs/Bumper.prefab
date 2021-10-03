@@ -131,6 +131,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 600
   anim: {fileID: 7636856873981005380}
+  directionalTransform: {fileID: 0}
+  PointsToAdd: 100
 --- !u!58 &7636856872700988351
 CircleCollider2D:
   m_ObjectHideFlags: 0
