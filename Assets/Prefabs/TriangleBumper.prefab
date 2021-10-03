@@ -103,6 +103,7 @@ MonoBehaviour:
   force: 1000
   anim: {fileID: 7890753884879263627}
   directionalTransform: {fileID: 1006725458928754304}
+  PointsToAdd: 50
 --- !u!1 &7890753883863487095
 GameObject:
   m_ObjectHideFlags: 0
