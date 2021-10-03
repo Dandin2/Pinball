@@ -6,6 +6,12 @@ public class BreakableObject : MonoBehaviour
 {
     public GameObject postBreakGO;
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+            Break();
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Break();
