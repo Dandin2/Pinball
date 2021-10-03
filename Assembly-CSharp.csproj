@@ -63,6 +63,7 @@
     <Compile Include="Assets\HittableObject.cs" />
     <Compile Include="Assets\BallResetZone.cs" />
     <Compile Include="Assets\GameManager.cs" />
+    <Compile Include="Assets\MenuManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

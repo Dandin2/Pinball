@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     private int totalPoints = 0;
+    private int livesUsed = 0;
 
     void Awake()
     {
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(this);
         }
         else
         {
@@ -25,5 +27,9 @@ public class GameManager : MonoBehaviour
     public void UpdatePoints(int pointsToAdd)
 	{
         totalPoints += pointsToAdd;
+    }
+    public void UseLife()
+    {
+        livesUsed++;
     }
 }
