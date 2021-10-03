@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,14 +6,16 @@ using UnityEngine;
 public class Flipper2 : MonoBehaviour
 {
 
-    public float flipRotation = 60;
+    public float flipRotation;
     public Rigidbody2D rb;
     public GameObject spriteHolder;
     public KeyCode activationKey;
 
     private float endRotation;
+    private Coroutine activatingRoutine;
+    private Coroutine deactivatingRoutine;
 
-	private void Start()
+    private void Start()
 	{
         endRotation = rb.transform.rotation.eulerAngles.z;
 	}
@@ -21,18 +24,24 @@ public class Flipper2 : MonoBehaviour
     {
         if (Input.GetKeyDown(activationKey))
         {
-            StopAllCoroutines();
-            StartCoroutine(FlipFlippers());
+            if (activatingRoutine != null)
+            {
+                StopCoroutine(activatingRoutine);
+            }
+            activatingRoutine = StartCoroutine(FlipFlippers());
         }
         else if (Input.GetKeyUp(activationKey))
         {
-            StopAllCoroutines();
-            StartCoroutine(ReleaseFlippers());
+            if (deactivatingRoutine != null)
+            {
+                StopCoroutine(deactivatingRoutine);
+            }
+            deactivatingRoutine = StartCoroutine(ReleaseFlippers());
         }
+
     }
 
-
-    private IEnumerator FlipFlippers()
+	private IEnumerator FlipFlippers()
     {
         float totalTime = 0.08f;
         float currentTime = totalTime * transform.rotation.z / flipRotation;

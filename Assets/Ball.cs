@@ -18,7 +18,7 @@ public class Ball : MonoBehaviour
 	internal void ResetPosition()
 	{
         transform.position = startingPosition;
-        rb.velocity = Vector3.zero;
+        rb.velocity = Vector3.zero;        
         GameManager.Instance.UseLife();
     }
 
