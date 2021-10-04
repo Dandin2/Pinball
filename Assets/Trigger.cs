@@ -20,10 +20,16 @@ public class Trigger : MonoBehaviour
     private Action triggerAction;
     private AudioSource audioSource;
 
+    private Animator animator;
 
     private bool canTrigger = true;
 
-    public void Update()
+	private void Awake()
+	{
+        animator = GetComponent<Animator>();
+	}
+
+	public void Update()
     {
         if (Input.GetKeyDown(KeyCode.O) && myQuest == Quest.SocialArea)
         {
@@ -57,20 +63,23 @@ public class Trigger : MonoBehaviour
     public void Deactivate()
     {
         isTriggered = false;
-        GetComponent<SpriteRenderer>().color = isTriggered ? activatedColor : defaultColor;
+        //GetComponent<SpriteRenderer>().color = isTriggered ? activatedColor : defaultColor;
+        animator.SetBool("isOn", isTriggered);
         triggerAction?.Invoke();
     }
 
     public void TurnOff()
     {
         isTriggered = false;
-        GetComponent<SpriteRenderer>().color = isTriggered ? activatedColor : defaultColor;
+        //GetComponent<SpriteRenderer>().color = isTriggered ? activatedColor : defaultColor;
+        animator.SetBool("isActive", false);
         canTrigger = false;
     }
 
     //If you know what I mean winkyface
     public void TurnOn()
     {
+        animator.SetBool("isActive", true);
         canTrigger = true;
     }
 
@@ -95,8 +104,8 @@ public class Trigger : MonoBehaviour
         bool initialActivation = !isTriggered;
 
         isTriggered = true;
-        GetComponent<SpriteRenderer>().color = isTriggered ? activatedColor : defaultColor;
-
+        //GetComponent<SpriteRenderer>().color = isTriggered ? activatedColor : defaultColor;
+        animator.SetBool("isOn", isTriggered);
         if (initialActivation)
             triggerAction?.Invoke();
     }
