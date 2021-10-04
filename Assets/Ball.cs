@@ -48,6 +48,16 @@ public class Ball : MonoBehaviour
 			rb.gravityScale = 100;
 	}
 
+	public void Suspend()
+    {
+		GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+    }
+
+	public void UnSuspend()
+	{
+		GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+	}
+
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
 		StartCoroutine(DelayThenSpin());

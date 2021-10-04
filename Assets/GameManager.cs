@@ -134,6 +134,10 @@ public class GameManager : MonoBehaviour
         Border.QuestCompleted(Quest.DiningHall);
 
         activeQuest = false;
+        if(completedQuests.Count == 3)
+        {
+            GoToNextTable();
+        }
     }
 
     public void DeactivateQuestTwo()
@@ -154,6 +158,10 @@ public class GameManager : MonoBehaviour
         Border.QuestCompleted(Quest.LivingQuarters);
 
         activeQuest = false;
+        if (completedQuests.Count == 3)
+        {
+            GoToNextTable();
+        }
     }
 
     public void DeactivateQuestThree()
@@ -174,5 +182,25 @@ public class GameManager : MonoBehaviour
         Border.QuestCompleted(Quest.SocialArea);
 
         activeQuest = false;
+        if (completedQuests.Count == 3)
+        {
+            GoToNextTable();
+        }
+    }
+
+
+    public void GoToNextTable()
+    {
+        TableManager.Instance.ActivateTransition(1);
+    }
+
+    public void GoToFinalTable()
+    {
+        TableManager.Instance.ActivateTransition(2);
+    }
+
+    public void Victory()
+    {
+
     }
 }

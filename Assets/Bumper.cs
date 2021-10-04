@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class Bumper : MonoBehaviour
 	public Animator anim;
 	public Transform directionalTransform;
 	public int PointsToAdd = 0;
+
+	public Action bounceAction;
 
 	private AudioSource audioSource;
 
@@ -30,8 +33,9 @@ public class Bumper : MonoBehaviour
 		{
 			direction = (collision.gameObject.transform.position - transform.position).normalized;
 		}
-		var force = Random.Range(minForce, maxForce);
+		var force = UnityEngine.Random.Range(minForce, maxForce);
 		collision.gameObject.GetComponent<Rigidbody2D>().AddForce(direction * force, ForceMode2D.Impulse);
 		GameManager.Instance.UpdatePoints(PointsToAdd);
+		bounceAction?.Invoke();
 	}
 }
