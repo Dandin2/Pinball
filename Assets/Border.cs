@@ -17,6 +17,9 @@ public class Border : MonoBehaviour
     public GameObject o3Fade;
 
     private List<Quest> completedQuests = new List<Quest>(); //probably could go in GameManager but fuck it.
+    private string baseOrderly1Text = "";
+    private string baseOrderly2Text = "";
+    private string baseOrderly3Text = "";
 
     private void Awake()
     {
@@ -39,14 +42,48 @@ public class Border : MonoBehaviour
         ScoreText.text = score.ToString();
     }
 
-    public void SetOrderlyText(int orderly, string text)
+    public void SetOrderlyText(int orderly, string text, float time = 0)
     {
         if (orderly == 1)
+        {
             OrderlyOneText.text = text;
+            if (time > 0)
+            {
+                StopAllCoroutines();
+                StartCoroutine(WaitThenClearText(OrderlyOneText, time, baseOrderly1Text));
+            }
+            else
+                baseOrderly1Text = text;
+        }
         else if (orderly == 2)
+        {
             OrderlyTwoText.text = text;
+            if (time > 0)
+            {
+                StopAllCoroutines();
+                StartCoroutine(WaitThenClearText(OrderlyTwoText, time, baseOrderly2Text));
+            }
+            else
+                baseOrderly2Text = text;
+        }
         else if (orderly == 3)
+        {
             OrderlyThreeText.text = text;
+            if (time > 0)
+            {
+                StopAllCoroutines();
+                StartCoroutine(WaitThenClearText(OrderlyThreeText, time, baseOrderly3Text));
+            }
+            else
+                baseOrderly3Text = text;
+        }
+    }
+
+    private IEnumerator WaitThenClearText(Text toSetAndClear, float time, string initialText)
+    {
+        yield return new WaitForSeconds(time);
+        toSetAndClear.text = initialText;
+        yield break;
     }
 
     public void SetObjectiveText(string text, bool addToCurrentText)
@@ -65,15 +102,19 @@ public class Border : MonoBehaviour
     public void QuestCompleted(Quest completed)
     {
         completedQuests.Add(completed);
+        OrderlyOneText.text = string.Empty;
+        OrderlyTwoText.text = string.Empty;
+        OrderlyThreeText.text = string.Empty;
+        ObjectiveText.text = string.Empty;
 
         o1Fade.SetActive(completedQuests.Contains(Quest.LivingQuarters));
-        o2Fade.SetActive(completedQuests.Contains(Quest.SocialArea));
-        o3Fade.SetActive(completedQuests.Contains(Quest.DiningHall));
+        o2Fade.SetActive(completedQuests.Contains(Quest.DiningHall));
+        o3Fade.SetActive(completedQuests.Contains(Quest.SocialArea));
     }
 
     public void StartQuest(Quest toStart)
     {
-        if(toStart == Quest.LivingQuarters)
+        if (toStart == Quest.LivingQuarters)
         {
             o1Fade.SetActive(false);
             o2Fade.SetActive(true);
@@ -85,14 +126,14 @@ public class Border : MonoBehaviour
             o1Fade.SetActive(true);
             o2Fade.SetActive(true);
             o3Fade.SetActive(false);
-            ObjectiveText.text = "Get that television remote from the orderly!";
+            ObjectiveText.text = "Have a scuffle with the therapist!";
         }
         else if (toStart == Quest.DiningHall)
         {
             o1Fade.SetActive(true);
             o2Fade.SetActive(false);
             o3Fade.SetActive(true);
-            ObjectiveText.text = "Participate in the food fight!";
+            ObjectiveText.text = "Have a scuffle with the doctor!";
         }
 
     }

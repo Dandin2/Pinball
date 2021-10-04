@@ -8,6 +8,7 @@ public class AreaOne : MonoBehaviour
     public List<Trigger> QuestTriggers;
     public List<Bumper> Bumpers;
     public GameObject TablePrefab;
+    public OrderlyFight OrderlyFight;
 
     private int activatedTriggers = 0;
     private List<GameObject> tables = new List<GameObject>();
@@ -23,8 +24,14 @@ public class AreaOne : MonoBehaviour
     public void Deactivate()
     {
         foreach (Trigger t in QuestTriggers)
-            t.Deactivate();
+            t.TurnOff();
         Arrow.gameObject.SetActive(false);
+    }
+
+    public void Activate()
+    {
+        foreach (Trigger t in QuestTriggers)
+            t.TurnOn();
     }
 
     private void OnTriggerActivationChange(Trigger t)
@@ -51,20 +58,30 @@ public class AreaOne : MonoBehaviour
 
     public void TryStartQuest()
     {
-        if (Arrow.gameObject.activeSelf == true)
+        if (Arrow.gameObject.activeSelf == true && !GameManager.Instance.activeQuest)
         {
             GameManager.Instance.ActivateQuestOne();
-            foreach(Bumper b in Bumpers)
-            {
-                b.gameObject.SetActive(false);
-                GameObject table = Instantiate(TablePrefab);
-                table.transform.position = b.transform.position;
-                tables.Add(table);
-            }
+            //foreach(Bumper b in Bumpers)
+            //{
+            //    b.gameObject.SetActive(false);
+            //    GameObject table = Instantiate(TablePrefab);
+            //    table.transform.position = b.transform.position;
+            //    tables.Add(table);
+            //}
+            Arrow.gameObject.SetActive(false);
+            OrderlyFight.Activate();
         }
     }
 
-    public void ResetBumpers(bool questCompleted)
+    public void QuestCompleted()
+    {
+        GameManager.Instance.DeactivateQuestOne();
+        ResetBumpers();
+        Arrow.gameObject.SetActive(false);
+        OrderlyFight.Deactivate();
+    }
+
+    public void ResetBumpers()
     {
         foreach (Bumper b in Bumpers)
             b.gameObject.SetActive(true);

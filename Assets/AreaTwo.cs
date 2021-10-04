@@ -8,8 +8,10 @@ public class AreaTwo : MonoBehaviour
     public List<Trigger> QuestTriggers;
     public List<Bumper> Bumpers;
     public GameObject TablePrefab;
+    public OrderlyFight OrderlyFight;
 
     private int activatedTriggers = 0;
+    private List<GameObject> tables = new List<GameObject>();
 
     private void Awake()
     {
@@ -22,8 +24,14 @@ public class AreaTwo : MonoBehaviour
     public void Deactivate()
     {
         foreach (Trigger t in QuestTriggers)
-            t.Deactivate();
+            t.TurnOff();
         Arrow.gameObject.SetActive(false);
+    }
+
+    public void Activate()
+    {
+        foreach (Trigger t in QuestTriggers)
+            t.TurnOn();
     }
 
     private void OnTriggerActivationChange(Trigger t)
@@ -50,13 +58,34 @@ public class AreaTwo : MonoBehaviour
 
     public void TryStartQuest()
     {
-        if (Arrow.gameObject.activeSelf == true)
+        if (Arrow.gameObject.activeSelf == true && !GameManager.Instance.activeQuest)
         {
             GameManager.Instance.ActivateQuestTwo();
+            Arrow.gameObject.SetActive(false);
+            OrderlyFight.Activate();
         }
         else
         {
             //Ring doorbell, have orderly yell at you that food isn't ready yet
         }
+    }
+
+    public void QuestCompleted()
+    {
+        GameManager.Instance.DeactivateQuestTwo();
+        ResetBumpers();
+        Arrow.gameObject.SetActive(false);
+        OrderlyFight.Deactivate();
+    }
+
+    public void ResetBumpers()
+    {
+        foreach (Bumper b in Bumpers)
+            b.gameObject.SetActive(true);
+
+        foreach (GameObject go in tables)
+            Destroy(go);
+
+        tables.Clear();
     }
 }

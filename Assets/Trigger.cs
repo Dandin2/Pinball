@@ -19,6 +19,34 @@ public class Trigger : MonoBehaviour
     private Action triggerAction;
     private AudioSource audioSource;
 
+
+    private bool canTrigger = true;
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.O) && myQuest == Quest.SocialArea)
+        {
+            if (hasIndividualTrigger)
+                OnTriggerEvent.Invoke();
+            else
+                Activate();
+        }
+        else if (Input.GetKeyDown(KeyCode.I) && myQuest == Quest.LivingQuarters)
+        {
+            if (hasIndividualTrigger)
+                OnTriggerEvent.Invoke();
+            else
+                Activate();
+        }
+        else if (Input.GetKeyDown(KeyCode.U) && myQuest == Quest.DiningHall)
+        {
+            if (hasIndividualTrigger)
+                OnTriggerEvent.Invoke();
+            else
+                Activate();
+        }
+    }
+
     public void SetTriggerAction(Action onTrigger)
     {
         audioSource = GetComponent<AudioSource>();
@@ -32,15 +60,31 @@ public class Trigger : MonoBehaviour
         triggerAction?.Invoke();
     }
 
+    public void TurnOff()
+    {
+        isTriggered = false;
+        GetComponent<SpriteRenderer>().color = isTriggered ? activatedColor : defaultColor;
+        canTrigger = false;
+    }
+
+    //If you know what I mean winkyface
+    public void TurnOn()
+    {
+        canTrigger = true;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == "Ball")
+        if (canTrigger)
         {
-            audioSource.Play();
-            if (hasIndividualTrigger)
-                OnTriggerEvent.Invoke();
-            else
-                Activate();
+            if (collision.name == "Ball")
+            {
+                audioSource.Play();
+                if (hasIndividualTrigger)
+                    OnTriggerEvent.Invoke();
+                else
+                    Activate();
+            }
         }
     }
 
@@ -51,7 +95,7 @@ public class Trigger : MonoBehaviour
         isTriggered = true;
         GetComponent<SpriteRenderer>().color = isTriggered ? activatedColor : defaultColor;
 
-        if (initialActivation) 
+        if (initialActivation)
             triggerAction?.Invoke();
     }
 }
@@ -60,5 +104,6 @@ public enum Quest
 {
     DiningHall,
     LivingQuarters,
-    SocialArea
+    SocialArea,
+    None
 }

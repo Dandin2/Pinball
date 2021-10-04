@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AreaThree : MonoBehaviour
+public class Area : MonoBehaviour
 {
+    public string QuestIndicatorText;
+    public string QuestActiveText;
+
     public SpriteRenderer Arrow;
     public List<Trigger> QuestTriggers;
     public List<Bumper> Bumpers;
     public GameObject TablePrefab;
-    public OrderlyFight OrderlyFight;
 
     private int activatedTriggers = 0;
     private List<GameObject> tables = new List<GameObject>();
@@ -42,7 +44,7 @@ public class AreaThree : MonoBehaviour
             if (activatedTriggers == QuestTriggers.Count)
             {
                 Arrow.gameObject.SetActive(true);
-                GameManager.Instance.Border.SetObjectiveText("Go up the right ramp to start the event in the therapist's room.", true);
+                GameManager.Instance.Border.SetObjectiveText("Go up the left ramp to start the event in the dining hall.", true);
             }
         }
         else
@@ -51,7 +53,7 @@ public class AreaThree : MonoBehaviour
             if (activatedTriggers < QuestTriggers.Count)
             {
                 Arrow.gameObject.SetActive(false);
-                GameManager.Instance.Border.RemoveObjectiveText("Go up the right ramp to start the event in the therapist's room.");
+                GameManager.Instance.Border.RemoveObjectiveText("Go up the left ramp to start the event in the dining hall.");
             }
         }
     }
@@ -60,21 +62,19 @@ public class AreaThree : MonoBehaviour
     {
         if (Arrow.gameObject.activeSelf == true && !GameManager.Instance.activeQuest)
         {
-            GameManager.Instance.ActivateQuestThree();
+            GameManager.Instance.ActivateQuestOne();
+            foreach (Bumper b in Bumpers)
+            {
+                b.gameObject.SetActive(false);
+                GameObject table = Instantiate(TablePrefab);
+                table.transform.position = b.transform.position;
+                tables.Add(table);
+            }
             Arrow.gameObject.SetActive(false);
-            OrderlyFight.Activate();
         }
     }
 
-    public void QuestCompleted()
-    {
-        GameManager.Instance.DeactivateQuestThree();
-        ResetBumpers();
-        Arrow.gameObject.SetActive(false);
-        OrderlyFight.Deactivate();
-    }
-
-    public void ResetBumpers()
+    public void ResetBumpers(bool questCompleted)
     {
         foreach (Bumper b in Bumpers)
             b.gameObject.SetActive(true);
