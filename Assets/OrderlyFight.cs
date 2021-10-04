@@ -28,7 +28,7 @@ public class OrderlyFight : MonoBehaviour
 
     public void Activate()
     {
-        foreach(ComplexBumper go in fisticuffs)
+        foreach (ComplexBumper go in fisticuffs)
         {
             go.gameObject.SetActive(true);
         }
@@ -42,16 +42,18 @@ public class OrderlyFight : MonoBehaviour
     public void OnFisticuffsBroken()
     {
         brokenLimbs++;
-        GameManager.Instance.Border.SetOrderlyText(orderly, thingsToSayOnThingBreaking[UnityEngine.Random.Range(0, thingsToSayOnThingBreaking.Count)], 2.5f);
+        if (thingsToSayOnThingBreaking.Count > 0)
+            GameManager.Instance.Border.SetOrderlyText(orderly, thingsToSayOnThingBreaking[UnityEngine.Random.Range(0, thingsToSayOnThingBreaking.Count)], 2.5f);
 
-        if(brokenLimbs >= fisticuffs.Count)
+        if (brokenLimbs >= fisticuffs.Count)
         {
-            onOrderlyDefeated.Invoke();
+            onOrderlyDefeated?.Invoke();
         }
     }
 
     public void OnFisticuffsDamaged()
     {
-        GameManager.Instance.Border.SetOrderlyText(orderly, thingsToSayWhenDamaged[UnityEngine.Random.Range(0, thingsToSayWhenDamaged.Count)], 1f);
+        if (thingsToSayWhenDamaged.Count > 0)
+            GameManager.Instance.Border.SetOrderlyText(orderly, thingsToSayWhenDamaged[UnityEngine.Random.Range(0, thingsToSayWhenDamaged.Count)], 1f);
     }
 }

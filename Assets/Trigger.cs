@@ -25,27 +25,27 @@ public class Trigger : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.O) && myQuest == Quest.SocialArea)
-        {
-            if (hasIndividualTrigger)
-                OnTriggerEvent.Invoke();
-            else
-                Activate();
-        }
-        else if (Input.GetKeyDown(KeyCode.I) && myQuest == Quest.LivingQuarters)
-        {
-            if (hasIndividualTrigger)
-                OnTriggerEvent.Invoke();
-            else
-                Activate();
-        }
-        else if (Input.GetKeyDown(KeyCode.U) && myQuest == Quest.DiningHall)
-        {
-            if (hasIndividualTrigger)
-                OnTriggerEvent.Invoke();
-            else
-                Activate();
-        }
+        //if (Input.GetKeyDown(KeyCode.O) && myQuest == Quest.SocialArea)
+        //{
+        //    if (hasIndividualTrigger)
+        //        OnTriggerEvent.Invoke();
+        //    else
+        //        Activate();
+        //}
+        //else if (Input.GetKeyDown(KeyCode.I) && myQuest == Quest.LivingQuarters)
+        //{
+        //    if (hasIndividualTrigger)
+        //        OnTriggerEvent.Invoke();
+        //    else
+        //        Activate();
+        //}
+        //else if (Input.GetKeyDown(KeyCode.U) && myQuest == Quest.DiningHall)
+        //{
+        //    if (hasIndividualTrigger)
+        //        OnTriggerEvent.Invoke();
+        //    else
+        //        Activate();
+        //}
     }
 
     public void SetTriggerAction(Action onTrigger)

@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     private int totalPoints = 0;
     private int livesUsed = 0;
+    private int level = 0;
 
     void Awake()
     {
@@ -214,14 +215,36 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public void StartNextLevel()
+    {
+        level++;
+        if (level == 1)
+        {
+            NextTableInitialize();
+        }
+        else
+            FinalTableInitialize();
+    }
+
     public void GoToNextTable()
     {
         TableManager.Instance.ActivateTransition(1);
     }
 
+    public void NextTableInitialize()
+    {
+        Border.SetActTwo();
+    }
+
     public void GoToFinalTable()
     {
         TableManager.Instance.ActivateTransition(2);
+    }
+
+
+    public void FinalTableInitialize()
+    {
+        Border.SetActThree();
     }
 
     public void Victory()

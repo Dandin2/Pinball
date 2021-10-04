@@ -5,6 +5,7 @@ using UnityEngine;
 public class AreaThree : MonoBehaviour
 {
     public SpriteRenderer Arrow;
+    public List<GameObject> targetArrows;
     public List<Trigger> QuestTriggers;
     public List<Bumper> Bumpers;
     public GameObject TablePrefab;
@@ -19,6 +20,7 @@ public class AreaThree : MonoBehaviour
         {
             t.SetTriggerAction(() => { OnTriggerActivationChange(t); });
         }
+        Activate();
     }
 
     public void Deactivate()
@@ -32,6 +34,8 @@ public class AreaThree : MonoBehaviour
     {
         foreach (Trigger t in QuestTriggers)
             t.TurnOn();
+        foreach (GameObject go in targetArrows)
+            go.SetActive(true);
     }
 
     private void OnTriggerActivationChange(Trigger t)
@@ -41,8 +45,10 @@ public class AreaThree : MonoBehaviour
             activatedTriggers++;
             if (activatedTriggers == QuestTriggers.Count)
             {
+                foreach (GameObject go in targetArrows)
+                    go.SetActive(false);
                 Arrow.gameObject.SetActive(true);
-                GameManager.Instance.Border.SetObjectiveText("Go up the right ramp to start the event in the therapist's room.", true);
+                GameManager.Instance.Border.SetObjectiveText("Go up the right ramp to have a scuffle with the therapist.", true);
             }
         }
         else
@@ -50,8 +56,10 @@ public class AreaThree : MonoBehaviour
             activatedTriggers--;
             if (activatedTriggers < QuestTriggers.Count)
             {
+                foreach (GameObject go in targetArrows)
+                    go.SetActive(true);
                 Arrow.gameObject.SetActive(false);
-                GameManager.Instance.Border.RemoveObjectiveText("Go up the right ramp to start the event in the therapist's room.");
+                GameManager.Instance.Border.RemoveObjectiveText("Go up the right ramp to have a scuffle with the therapist.");
             }
         }
     }
@@ -59,6 +67,9 @@ public class AreaThree : MonoBehaviour
     internal void ResetQuestTriggers()
     {
         activatedTriggers = 0;
+        Arrow.gameObject.SetActive(false);
+        foreach (GameObject go in targetArrows)
+            go.SetActive(true);
     }
 
     public void TryStartQuest()

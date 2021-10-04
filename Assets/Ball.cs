@@ -25,6 +25,7 @@ public class Ball : MonoBehaviour
 		GameManager.Instance.UseLife();
 		foreach (GameObject go in disableOnResetPositionGOs)
 			go.SetActive(false);
+		GameManager.Instance.Border.SetObjectiveText("Press and hold space bar to launch.", false);
 	}
 
 	private void Update()
@@ -38,10 +39,6 @@ public class Ball : MonoBehaviour
 			audioSource.Stop();
 		}
 
-		if (Input.GetKeyDown(KeyCode.F))
-		{
-			ResetPosition();
-		}
 		if (rb.velocity.y > 0)
 			rb.gravityScale = 50;
 		else
