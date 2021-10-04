@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -90,5 +91,10 @@ public class AreaOne : MonoBehaviour
             Destroy(go);
 
         tables.Clear();
+    }
+
+    internal void ResetQuestTriggers()
+    {
+        activatedTriggers = 0;
     }
 }
