@@ -465,6 +465,7 @@ GameObject:
   - component: {fileID: 56458614}
   - component: {fileID: 56458613}
   - component: {fileID: 56458616}
+  - component: {fileID: 56458617}
   m_Layer: 0
   m_Name: Trigger (3)
   m_TagString: Untagged
@@ -694,6 +695,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &56458617
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56458611}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6e8445fe791a7d24fb855dae1044f05b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &59068034
 GameObject:
   m_ObjectHideFlags: 0
@@ -2451,6 +2471,7 @@ GameObject:
   - component: {fileID: 363940452}
   - component: {fileID: 363940451}
   - component: {fileID: 363940454}
+  - component: {fileID: 363940455}
   m_Layer: 0
   m_Name: Trigger (9)
   m_TagString: Untagged
@@ -2680,6 +2701,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &363940455
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363940449}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6e8445fe791a7d24fb855dae1044f05b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &382606338
 GameObject:
   m_ObjectHideFlags: 0
@@ -6394,6 +6434,7 @@ GameObject:
   - component: {fileID: 836815988}
   - component: {fileID: 836815987}
   - component: {fileID: 836815991}
+  - component: {fileID: 836815992}
   m_Layer: 0
   m_Name: Trigger (5)
   m_TagString: Untagged
@@ -6623,6 +6664,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &836815992
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836815986}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6e8445fe791a7d24fb855dae1044f05b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &867582390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10240,6 +10300,7 @@ GameObject:
   - component: {fileID: 1133424130}
   - component: {fileID: 1133424129}
   - component: {fileID: 1133424132}
+  - component: {fileID: 1133424133}
   m_Layer: 0
   m_Name: Trigger (8)
   m_TagString: Untagged
@@ -10469,6 +10530,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &1133424133
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133424127}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6e8445fe791a7d24fb855dae1044f05b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1150326594
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15171,6 +15251,7 @@ GameObject:
   - component: {fileID: 1590900435}
   - component: {fileID: 1590900434}
   - component: {fileID: 1590900437}
+  - component: {fileID: 1590900438}
   m_Layer: 0
   m_Name: Trigger (7)
   m_TagString: Untagged
@@ -15400,6 +15481,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &1590900438
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590900432}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6e8445fe791a7d24fb855dae1044f05b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1592131302
 GameObject:
   m_ObjectHideFlags: 0
@@ -18979,6 +19079,7 @@ GameObject:
   - component: {fileID: 1989723071}
   - component: {fileID: 1989723070}
   - component: {fileID: 1989723074}
+  - component: {fileID: 1989723075}
   m_Layer: 0
   m_Name: Trigger (4)
   m_TagString: Untagged
@@ -19208,6 +19309,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &1989723075
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989723069}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6e8445fe791a7d24fb855dae1044f05b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1990278327
 GameObject:
   m_ObjectHideFlags: 0
@@ -20000,6 +20120,7 @@ GameObject:
   - component: {fileID: 2017107528}
   - component: {fileID: 2017107527}
   - component: {fileID: 2017107531}
+  - component: {fileID: 2017107532}
   m_Layer: 0
   m_Name: Trigger (2)
   m_TagString: Untagged
@@ -20229,6 +20350,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &2017107532
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017107526}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6e8445fe791a7d24fb855dae1044f05b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2023652186
 GameObject:
   m_ObjectHideFlags: 0
@@ -21597,6 +21737,7 @@ GameObject:
   - component: {fileID: 2142797807}
   - component: {fileID: 2142797806}
   - component: {fileID: 2142797810}
+  - component: {fileID: 2142797811}
   m_Layer: 0
   m_Name: Trigger (6)
   m_TagString: Untagged
@@ -21826,6 +21967,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &2142797811
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142797805}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6e8445fe791a7d24fb855dae1044f05b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!224 &2146786470 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 135464175040906411, guid: 0efa9627448e3ef498940387a0d2f9d1, type: 3}

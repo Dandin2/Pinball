@@ -14,7 +14,7 @@ public class AreaThree : MonoBehaviour
     private int activatedTriggers = 0;
     private List<GameObject> tables = new List<GameObject>();
 
-    private void Awake()
+    private void Start()
     {
         foreach (Trigger t in QuestTriggers)
         {
