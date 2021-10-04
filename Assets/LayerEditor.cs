@@ -14,8 +14,28 @@ public class LayerEditor : MonoBehaviour
     {
         if (collision.name == "Ball")
         {
+
             ConditionalEnable ce = null;
             Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
+
+            //if (collision.transform.position.x > transform.position.x)
+            //{
+            //    ce = conditions.Where(x => x.condition == InteractCondition.EnterRight).FirstOrDefault();
+            //}
+            //else if (collision.transform.position.x < transform.position.x)
+            //{
+            //    ce = conditions.Where(x => x.condition == InteractCondition.EnterLeft).FirstOrDefault();
+            //}
+
+            //if (collision.transform.position.y > transform.position.y)
+            //{
+            //    ce = conditions.Where(x => x.condition == InteractCondition.EnterTop).FirstOrDefault();
+            //}
+            //else if (collision.transform.position.y < transform.position.y)
+            //{
+            //    ce = conditions.Where(x => x.condition == InteractCondition.EnterBottom).FirstOrDefault();
+            //}
+
             if (Math.Abs(rb.velocity.x) > Math.Abs(rb.velocity.y)) //collision.transform.position.x > transform.position.x)
             {
                 if (rb.velocity.x > 0)
@@ -56,7 +76,7 @@ public class LayerEditor : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.name == "Ball")
+        if (collision.name == "Ball")
         {
             ConditionalEnable ce = null;
             Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
@@ -75,7 +95,7 @@ public class LayerEditor : MonoBehaviour
                     ce = conditions.Where(x => x.condition == InteractCondition.ExitBottom).FirstOrDefault();
             }
 
-            if(ce != null)
+            if (ce != null)
             {
                 if (enableDisableHitboxes)
                 {

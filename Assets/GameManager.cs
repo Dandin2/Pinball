@@ -142,6 +142,7 @@ public class GameManager : MonoBehaviour
         }
         completedQuests.Add(Quest.DiningHall);
         Border.QuestCompleted(Quest.DiningHall);
+        TableManager.Instance.CrackRing();
 
         activeQuest = false;
         if(completedQuests.Count == 3)
@@ -174,6 +175,7 @@ public class GameManager : MonoBehaviour
         }
         completedQuests.Add(Quest.LivingQuarters);
         Border.QuestCompleted(Quest.LivingQuarters);
+        TableManager.Instance.CrackRing();
 
         activeQuest = false;
         if (completedQuests.Count == 3)
@@ -206,6 +208,7 @@ public class GameManager : MonoBehaviour
         }
         completedQuests.Add(Quest.SocialArea);
         Border.QuestCompleted(Quest.SocialArea);
+        TableManager.Instance.CrackRing();
 
         activeQuest = false;
         if (completedQuests.Count == 3)

@@ -8,15 +8,24 @@ public class Ring : MonoBehaviour
     public KeyCode TiltRight;
 	public float LeftAngle;
 	public float RightAngle;
+	public List<Sprite> ringSprites;
 
 	private State ringState = State.Center;
 	private Rigidbody2D _rb;
 	private float rotationSpeed = 5f;
+
+	private int index = 0;
 	private enum State
 	{
 		Left = 0,
 		Center = 1,
 		Right = 2
+	}
+
+	public void GoToNextSprite()
+    {
+		GetComponent<SpriteRenderer>().sprite = ringSprites[index];
+		index++;
 	}
 
 	private void Awake()

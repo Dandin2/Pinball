@@ -9,6 +9,7 @@ public class TableManager : MonoBehaviour
     public LevelTransition Transition1;
     public LevelTransition Transition2;
     public GameObject VictoryScreen;
+    public Ring Ring;
 
     public static TableManager Instance = null;
 
@@ -50,6 +51,11 @@ public class TableManager : MonoBehaviour
             Transition2.gameObject.SetActive(true);
 
         GameManager.Instance.Border.SetObjectiveText("Descend", false);
+    }
+
+    public void CrackRing()
+    {
+        Ring.GoToNextSprite();
     }
 
 }
