@@ -176,6 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultColor: {r: 1, g: 0.89019614, b: 0, a: 1}
   activatedColor: {r: 0, g: 1, b: 1, a: 1}
+  PointValue: 150
   myQuest: 0
   fellowFriends:
   - {fileID: 1781015076}
@@ -1201,6 +1202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultColor: {r: 0, g: 0.1764706, b: 1, a: 1}
   activatedColor: {r: 0, g: 1, b: 1, a: 1}
+  PointValue: 150
   myQuest: 2
   fellowFriends:
   - {fileID: 1590900434}
@@ -2875,6 +2877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultColor: {r: 1, g: 0, b: 0.9960785, a: 1}
   activatedColor: {r: 0, g: 1, b: 1, a: 1}
+  PointValue: 150
   myQuest: 1
   fellowFriends:
   - {fileID: 1989723070}
@@ -4748,6 +4751,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultColor: {r: 0, g: 0.1764706, b: 1, a: 1}
   activatedColor: {r: 0, g: 1, b: 1, a: 1}
+  PointValue: 150
   myQuest: 2
   fellowFriends:
   - {fileID: 1590900434}
@@ -7627,6 +7631,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultColor: {r: 0, g: 0.1764706, b: 1, a: 1}
   activatedColor: {r: 0, g: 1, b: 1, a: 1}
+  PointValue: 150
   myQuest: 2
   fellowFriends:
   - {fileID: 1133424129}
@@ -8894,6 +8899,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultColor: {r: 1, g: 0.89019614, b: 0, a: 1}
   activatedColor: {r: 0, g: 1, b: 1, a: 1}
+  PointValue: 150
   myQuest: 0
   fellowFriends:
   - {fileID: 2017107527}
@@ -10026,6 +10032,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultColor: {r: 1, g: 0, b: 0.9960785, a: 1}
   activatedColor: {r: 0, g: 1, b: 1, a: 1}
+  PointValue: 150
   myQuest: 1
   fellowFriends:
   - {fileID: 836815987}
@@ -10865,6 +10872,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultColor: {r: 1, g: 0.89019614, b: 0, a: 1}
   activatedColor: {r: 0, g: 1, b: 1, a: 1}
+  PointValue: 150
   myQuest: 0
   fellowFriends:
   - {fileID: 1781015076}
@@ -12201,6 +12209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultColor: {r: 1, g: 0, b: 0.9960785, a: 1}
   activatedColor: {r: 0, g: 1, b: 1, a: 1}
+  PointValue: 150
   myQuest: 1
   fellowFriends:
   - {fileID: 1989723070}

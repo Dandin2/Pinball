@@ -50,11 +50,16 @@ public class GameManager : MonoBehaviour
     {
         Border = b;
     }
-
+    
+    public void SetPoints(int points)
+    {
+        totalPoints = points;
+    }
 
     public void UpdatePoints(int pointsToAdd)
     {
         totalPoints += pointsToAdd;
+        Border.SetScoreText(totalPoints);
     }
     public void UseLife()
     {
