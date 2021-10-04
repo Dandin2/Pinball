@@ -24,9 +24,15 @@ public class Border : MonoBehaviour
     private void Awake()
     {
         if (GameManager.Instance != null)
+        {
             GameManager.Instance.SetBorder(this);
+            GameManager.Instance.SetPoints(0);
+        }
         else
+        {
             StartCoroutine(DeleteMe());
+        }
+        SetScoreText(0);
     }
 
     private IEnumerator DeleteMe()

@@ -9,6 +9,7 @@ public class Trigger : MonoBehaviour
 {
     public Color defaultColor;
     public Color activatedColor;
+    public int PointValue = 150;
 
     public Quest myQuest;
     public List<Trigger> fellowFriends;
@@ -80,6 +81,7 @@ public class Trigger : MonoBehaviour
             if (collision.name == "Ball")
             {
                 audioSource.Play();
+                GameManager.Instance.UpdatePoints(PointValue);
                 if (hasIndividualTrigger)
                     OnTriggerEvent.Invoke();
                 else

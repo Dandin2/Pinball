@@ -176,6 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultColor: {r: 1, g: 0.89019614, b: 0, a: 1}
   activatedColor: {r: 0, g: 1, b: 1, a: 1}
+  PointValue: 150
   myQuest: 0
   fellowFriends:
   - {fileID: 1781015076}
@@ -1193,6 +1194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultColor: {r: 0, g: 0.1764706, b: 1, a: 1}
   activatedColor: {r: 0, g: 1, b: 1, a: 1}
+  PointValue: 150
   myQuest: 2
   fellowFriends:
   - {fileID: 1590900434}
@@ -1799,7 +1801,7 @@ MonoBehaviour:
   minForce: 1000
   maxForce: 2000
   anim: {fileID: 2076145298}
-  directionalTransform: {fileID: 398806358}
+  directionalTransform: {fileID: 0}
   PointsToAdd: 100
 --- !u!224 &421698752
 RectTransform:
@@ -1812,7 +1814,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children:
-  - {fileID: 398806358}
   - {fileID: 2076145300}
   m_Father: {fileID: 1611513509}
   m_RootOrder: 1
@@ -2582,6 +2583,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultColor: {r: 1, g: 0, b: 0.9960785, a: 1}
   activatedColor: {r: 0, g: 1, b: 1, a: 1}
+  PointValue: 150
   myQuest: 1
   fellowFriends:
   - {fileID: 1989723070}
@@ -4357,6 +4359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultColor: {r: 0, g: 0.1764706, b: 1, a: 1}
   activatedColor: {r: 0, g: 1, b: 1, a: 1}
+  PointValue: 150
   myQuest: 2
   fellowFriends:
   - {fileID: 1590900434}
@@ -6419,6 +6422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultColor: {r: 0, g: 0.1764706, b: 1, a: 1}
   activatedColor: {r: 0, g: 1, b: 1, a: 1}
+  PointValue: 150
   myQuest: 2
   fellowFriends:
   - {fileID: 1133424129}
@@ -7467,6 +7471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultColor: {r: 1, g: 0.89019614, b: 0, a: 1}
   activatedColor: {r: 0, g: 1, b: 1, a: 1}
+  PointValue: 150
   myQuest: 0
   fellowFriends:
   - {fileID: 2017107527}
@@ -8502,6 +8507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultColor: {r: 1, g: 0, b: 0.9960785, a: 1}
   activatedColor: {r: 0, g: 1, b: 1, a: 1}
+  PointValue: 150
   myQuest: 1
   fellowFriends:
   - {fileID: 836815987}
@@ -9103,6 +9109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultColor: {r: 1, g: 0.89019614, b: 0, a: 1}
   activatedColor: {r: 0, g: 1, b: 1, a: 1}
+  PointValue: 150
   myQuest: 0
   fellowFriends:
   - {fileID: 1781015076}
@@ -10884,7 +10891,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 421698752}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2084979393 stripped
 MonoBehaviour:
@@ -10942,6 +10949,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultColor: {r: 1, g: 0, b: 0.9960785, a: 1}
   activatedColor: {r: 0, g: 1, b: 1, a: 1}
+  PointValue: 150
   myQuest: 1
   fellowFriends:
   - {fileID: 1989723070}
@@ -11248,6 +11256,26 @@ PrefabInstance:
     - target: {fileID: 135464175040906411, guid: 0efa9627448e3ef498940387a0d2f9d1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 135464176020383338, guid: 0efa9627448e3ef498940387a0d2f9d1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99480104
+      objectReference: {fileID: 0}
+    - target: {fileID: 135464176020383338, guid: 0efa9627448e3ef498940387a0d2f9d1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.10183764
+      objectReference: {fileID: 0}
+    - target: {fileID: 135464176020383338, guid: 0efa9627448e3ef498940387a0d2f9d1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 290
+      objectReference: {fileID: 0}
+    - target: {fileID: 135464176020383338, guid: 0efa9627448e3ef498940387a0d2f9d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -112
+      objectReference: {fileID: 0}
+    - target: {fileID: 135464176020383338, guid: 0efa9627448e3ef498940387a0d2f9d1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 11.69
       objectReference: {fileID: 0}
     - target: {fileID: 135464176698063817, guid: 0efa9627448e3ef498940387a0d2f9d1, type: 3}
       propertyPath: m_IsActive
