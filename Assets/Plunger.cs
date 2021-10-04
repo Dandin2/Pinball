@@ -7,11 +7,15 @@ public class Plunger : MonoBehaviour
 {
     public KeyCode PlungerActivationKey;
     public Rigidbody2D PlungerRigidBody;
+    public bool IsAutoPlunger;
+    public GameObject AutoPlungerBlocker;
+    public SpriteRenderer Replenisher;
 
     private float startPosition;
     private RectTransform t;
     private AudioSource audioSource;
     private bool started = false;
+    private bool autoStart = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +27,7 @@ public class Plunger : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(Input.GetKey(PlungerActivationKey))
+        if((!IsAutoPlunger && Input.GetKey(PlungerActivationKey)) || (IsAutoPlunger && autoStart))
 		{
             AddPower();
             started = true;
@@ -47,5 +51,26 @@ public class Plunger : MonoBehaviour
         {
             PlungerRigidBody.transform.position = new Vector2(PlungerRigidBody.transform.position.x, PlungerRigidBody.transform.position.y - 1);
         }
+    }
+
+	private void OnTriggerEnter2D(Collider2D collider)
+	{
+        var ball = collider.GetComponent<Ball>();
+		if(IsAutoPlunger && ball != null)
+		{
+            autoStart = true;
+            Invoke("AutoReleasePlunger", 1f);
+		}
+	}
+
+    private void AutoReleasePlunger()
+	{
+        autoStart = false;
+        Invoke("CloseAutoPlunger", .5f);
+    }
+    private void CloseAutoPlunger()
+    {
+        Replenisher.color = new Color(96 / 255, 96 / 255, 96 / 255);
+        AutoPlungerBlocker.gameObject.SetActive(true);
     }
 }
