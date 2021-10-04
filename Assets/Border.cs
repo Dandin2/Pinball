@@ -126,21 +126,21 @@ public class Border : MonoBehaviour
             o1Fade.SetActive(false);
             o2Fade.SetActive(true);
             o3Fade.SetActive(true);
-            ObjectiveText.text = "Have a scuffle with the nurse!";
+            ObjectiveText.text = "Have a scuffle with the nurse!" + Environment.NewLine + Environment.NewLine + "Destroy the 3 white targets.";
         }
         else if (toStart == Quest.SocialArea)
         {
             o1Fade.SetActive(true);
             o2Fade.SetActive(true);
             o3Fade.SetActive(false);
-            ObjectiveText.text = "Have a scuffle with the therapist!";
+            ObjectiveText.text = "Have a scuffle with the therapist!" + Environment.NewLine + Environment.NewLine + "Destroy the 3 white targets.";
         }
         else if (toStart == Quest.DiningHall)
         {
             o1Fade.SetActive(true);
             o2Fade.SetActive(false);
             o3Fade.SetActive(true);
-            ObjectiveText.text = "Have a scuffle with the doctor!";
+            ObjectiveText.text = "Have a scuffle with the doctor!" + Environment.NewLine + Environment.NewLine + "Destroy the 3 white targets.";
         }
 
     }

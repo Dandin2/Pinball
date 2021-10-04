@@ -47,6 +47,9 @@ public class LayerEditor : MonoBehaviour
                     foreach (GameObject go in ce.disableHitboxes)
                         go.SetActive(false);
                 }
+
+                if (ce.bridge.sprite != null)
+                    ce.bridge.sprite.sortingOrder = ce.bridge.orderInLayer;
             }
         }
     }
@@ -88,6 +91,9 @@ public class LayerEditor : MonoBehaviour
                     foreach (GameObject go in ce.disableHitboxes)
                         go.SetActive(false);
                 }
+
+                if (ce.bridge.sprite != null)
+                    ce.bridge.sprite.sortingOrder = ce.bridge.orderInLayer;
             }
         }
     }
@@ -99,6 +105,15 @@ public class ConditionalEnable
     public InteractCondition condition;
     public List<GameObject> disableHitboxes;
     public List<GameObject> enableHitboxes;
+
+    public SpriteChanger bridge;
+}
+
+[Serializable]
+public class SpriteChanger
+{
+    public SpriteRenderer sprite;
+    public int orderInLayer;
 }
 
 public enum InteractCondition
