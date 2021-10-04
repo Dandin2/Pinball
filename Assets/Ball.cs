@@ -7,6 +7,8 @@ public class Ball : MonoBehaviour
 {
 	Rigidbody2D rb => GetComponent<Rigidbody2D>();
 
+	public List<GameObject> disableOnResetPositionGOs;
+
 	private Vector2 startingPosition;
 	private AudioSource audioSource;
 
@@ -21,6 +23,8 @@ public class Ball : MonoBehaviour
 		transform.position = startingPosition;
 		rb.velocity = Vector3.zero;
 		GameManager.Instance.UseLife();
+		foreach (GameObject go in disableOnResetPositionGOs)
+			go.SetActive(false);
 	}
 
 	private void Update()
