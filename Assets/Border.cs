@@ -107,6 +107,7 @@ public class Border : MonoBehaviour
 
     public void QuestCompleted(Quest completed)
     {
+        StopAllCoroutines();
         completedQuests.Add(completed);
         OrderlyOneText.text = string.Empty;
         OrderlyTwoText.text = string.Empty;

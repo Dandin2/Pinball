@@ -7,6 +7,8 @@ using UnityEngine;
 public class LayerEditor : MonoBehaviour
 {
     public List<ConditionalEnable> conditions;
+    public bool enableDisableHitboxes = true;
+    public bool enableDisableGameObjects;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -31,10 +33,20 @@ public class LayerEditor : MonoBehaviour
 
             if (ce != null)
             {
-                foreach (GameObject go in ce.enableHitboxes)
-                    go.GetComponent<PolygonCollider2D>().enabled = true;
-                foreach (GameObject go in ce.disableHitboxes)
-                    go.GetComponent<PolygonCollider2D>().enabled = false;
+                if (enableDisableHitboxes)
+                {
+                    foreach (GameObject go in ce.enableHitboxes)
+                        go.GetComponent<PolygonCollider2D>().enabled = true;
+                    foreach (GameObject go in ce.disableHitboxes)
+                        go.GetComponent<PolygonCollider2D>().enabled = false;
+                }
+                else if (enableDisableGameObjects)
+                {
+                    foreach (GameObject go in ce.enableHitboxes)
+                        go.SetActive(true);
+                    foreach (GameObject go in ce.disableHitboxes)
+                        go.SetActive(false);
+                }
             }
         }
     }
@@ -62,10 +74,20 @@ public class LayerEditor : MonoBehaviour
 
             if(ce != null)
             {
-                foreach (GameObject go in ce.enableHitboxes)
-                    go.GetComponent<PolygonCollider2D>().enabled = true;
-                foreach (GameObject go in ce.disableHitboxes)
-                    go.GetComponent<PolygonCollider2D>().enabled = false;
+                if (enableDisableHitboxes)
+                {
+                    foreach (GameObject go in ce.enableHitboxes)
+                        go.GetComponent<PolygonCollider2D>().enabled = true;
+                    foreach (GameObject go in ce.disableHitboxes)
+                        go.GetComponent<PolygonCollider2D>().enabled = false;
+                }
+                else if (enableDisableGameObjects)
+                {
+                    foreach (GameObject go in ce.enableHitboxes)
+                        go.SetActive(true);
+                    foreach (GameObject go in ce.disableHitboxes)
+                        go.SetActive(false);
+                }
             }
         }
     }

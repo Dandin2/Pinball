@@ -42,7 +42,7 @@ public class OrderlyFight : MonoBehaviour
     public void OnFisticuffsBroken()
     {
         brokenLimbs++;
-        GameManager.Instance.Border.SetOrderlyText(orderly, thingsToSayOnThingBreaking[UnityEngine.Random.Range(0, thingsToSayOnThingBreaking.Count)], 3);
+        GameManager.Instance.Border.SetOrderlyText(orderly, thingsToSayOnThingBreaking[UnityEngine.Random.Range(0, thingsToSayOnThingBreaking.Count)], 2.5f);
 
         if(brokenLimbs >= fisticuffs.Count)
         {
@@ -52,6 +52,6 @@ public class OrderlyFight : MonoBehaviour
 
     public void OnFisticuffsDamaged()
     {
-        GameManager.Instance.Border.SetOrderlyText(orderly, thingsToSayWhenDamaged[UnityEngine.Random.Range(0, thingsToSayWhenDamaged.Count)], 3);
+        GameManager.Instance.Border.SetOrderlyText(orderly, thingsToSayWhenDamaged[UnityEngine.Random.Range(0, thingsToSayWhenDamaged.Count)], 1f);
     }
 }

@@ -42,7 +42,7 @@ public class AreaTwo : MonoBehaviour
             if (activatedTriggers == QuestTriggers.Count)
             {
                 Arrow.gameObject.SetActive(true);
-                GameManager.Instance.Border.SetObjectiveText("Ring the doorbell to start the event in your living quarter.", true);
+                GameManager.Instance.Border.SetObjectiveText("Go through the tunnel to start the event in your room.", true);
             }
         }
         else
@@ -51,7 +51,7 @@ public class AreaTwo : MonoBehaviour
             if (activatedTriggers < QuestTriggers.Count)
             {
                 Arrow.gameObject.SetActive(false);
-                GameManager.Instance.Border.RemoveObjectiveText("Ring the doorbell to start the event in your living quarter.");
+                GameManager.Instance.Border.RemoveObjectiveText("Go through the tunnel to start the event in your room.");
             }
         }
     }
