@@ -9,6 +9,7 @@ public class Plunger : MonoBehaviour
     public Rigidbody2D PlungerRigidBody;
     public bool IsAutoPlunger;
     public GameObject AutoPlungerBlocker;
+    public SpriteRenderer Replenisher;
 
     private float startPosition;
     private RectTransform t;
@@ -69,6 +70,7 @@ public class Plunger : MonoBehaviour
     }
     private void CloseAutoPlunger()
     {
+        Replenisher.color = new Color(96 / 255, 96 / 255, 96 / 255);
         AutoPlungerBlocker.gameObject.SetActive(true);
     }
 }
