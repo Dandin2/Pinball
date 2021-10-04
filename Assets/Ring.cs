@@ -24,8 +24,11 @@ public class Ring : MonoBehaviour
 
 	public void GoToNextSprite()
     {
-		GetComponent<SpriteRenderer>().sprite = ringSprites[index];
-		index++;
+		if (index < ringSprites.Count)
+		{
+			GetComponent<SpriteRenderer>().sprite = ringSprites[index];
+			index++;
+		}
 	}
 
 	private void Awake()
