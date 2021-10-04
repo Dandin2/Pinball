@@ -144,4 +144,33 @@ public class Border : MonoBehaviour
         }
 
     }
+
+
+    public void FadeOut()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public void SetActTwo()
+    {
+        SetObjectiveText("RAGE!  Break all the tables!", false);
+        o1Fade.SetActive(true);
+        o2Fade.SetActive(true);
+        o3Fade.SetActive(true);
+        o1Fade.GetComponent<SpriteRenderer>().color = new Color(.4f, 0, 0, .5f);
+        o2Fade.GetComponent<SpriteRenderer>().color = new Color(.4f, 0, 0, .5f);
+        o3Fade.GetComponent<SpriteRenderer>().color = new Color(.4f, 0, 0, .5f);
+    }
+
+    public void SetActThree()
+    {
+        SetObjectiveText("Defeat your inner demons!", false);
+        SetOrderlyText(1, "...");
+        SetOrderlyText(2, "...");
+        SetOrderlyText(3, "...");
+        o1Fade.GetComponent<SpriteRenderer>().color = new Color(.6f, 0, 0, .7f);
+        o2Fade.GetComponent<SpriteRenderer>().color = new Color(.6f, 0, 0, .7f);
+        o3Fade.GetComponent<SpriteRenderer>().color = new Color(.6f, 0, 0, .7f);
+    }
+
 }

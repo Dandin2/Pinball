@@ -68,6 +68,7 @@ public class LevelTransition : MonoBehaviour
         foreach (SpriteRenderer sr in fadeIn)
             sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1);
 
+        GameManager.Instance.StartNextLevel();
         yield break;
     }
 }

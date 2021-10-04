@@ -12,20 +12,20 @@ public class Flipper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StopAllCoroutines();
-            StartCoroutine(FlipFlippers());
-        }
-        else if (Input.GetKeyUp(KeyCode.Space))
-        {
-            StopAllCoroutines();
-            StartCoroutine(ReleaseFlippers());
-        }
-        if(Input.GetKeyDown(KeyCode.A))
-        {
-            GetComponent<Rigidbody2D>().rotation = 45f;
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    StopAllCoroutines();
+        //    StartCoroutine(FlipFlippers());
+        //}
+        //else if (Input.GetKeyUp(KeyCode.Space))
+        //{
+        //    StopAllCoroutines();
+        //    StartCoroutine(ReleaseFlippers());
+        //}
+        //if(Input.GetKeyDown(KeyCode.A))
+        //{
+        //    GetComponent<Rigidbody2D>().rotation = 45f;
+        //}
     }
 
     private IEnumerator FlipFlippers()

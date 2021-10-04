@@ -43,6 +43,8 @@ public class Plunger : MonoBehaviour
 	{
         audioSource.Play();
         PlungerRigidBody.MovePosition(new Vector2(PlungerRigidBody.transform.position.x, startPosition));
+        if(!IsAutoPlunger)
+            GameManager.Instance.Border.SetObjectiveText("Hit the targets along the wall to get objectives.", false);
     }
 
 	private void AddPower()

@@ -10,10 +10,10 @@ public class BreakableObject : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-            Break();
-        if (Input.GetKeyDown(KeyCode.Z))
-            BreakInstantly();
+        //if (Input.GetKeyDown(KeyCode.P))
+        //    Break();
+        //if (Input.GetKeyDown(KeyCode.Z))
+        //    BreakInstantly();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
