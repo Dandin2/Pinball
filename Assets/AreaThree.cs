@@ -56,6 +56,11 @@ public class AreaThree : MonoBehaviour
         }
     }
 
+    internal void ResetQuestTriggers()
+    {
+        activatedTriggers = 0;
+    }
+
     public void TryStartQuest()
     {
         if (Arrow.gameObject.activeSelf == true && !GameManager.Instance.activeQuest)

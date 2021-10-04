@@ -120,9 +120,18 @@ public class GameManager : MonoBehaviour
     {
         var area = GameObject.Find("AreaOne");
         if (!completedQuests.Contains(Quest.LivingQuarters))
-            GameObject.Find("AreaTwo").GetComponent<AreaTwo>().Activate();
+        {
+            var go = GameObject.Find("AreaTwo").GetComponent<AreaTwo>();
+            go.Activate();
+            go.ResetQuestTriggers();
+
+        }
         if (!completedQuests.Contains(Quest.SocialArea))
-            GameObject.Find("AreaThree").GetComponent<AreaThree>().Activate();
+        {
+            var go = GameObject.Find("AreaThree").GetComponent<AreaThree>();
+            go.Activate();
+            go.ResetQuestTriggers();
+        }
 
         GameObject.Find("AreaOne").GetComponent<AreaOne>().Deactivate();
         var bumpers = area.GetComponentsInChildren<Bumper>(true);
@@ -140,9 +149,17 @@ public class GameManager : MonoBehaviour
     {
         var area = GameObject.Find("AreaTwo");
         if (!completedQuests.Contains(Quest.DiningHall))
-            GameObject.Find("AreaOne").GetComponent<AreaOne>().Activate();
+        {
+            var go = GameObject.Find("AreaOne").GetComponent<AreaOne>();
+            go.Activate();
+            go.ResetQuestTriggers();
+        }
         if (!completedQuests.Contains(Quest.SocialArea))
-            GameObject.Find("AreaThree").GetComponent<AreaThree>().Activate();
+        {
+            var go = GameObject.Find("AreaThree").GetComponent<AreaThree>();
+            go.Activate();
+            go.ResetQuestTriggers();
+        }
 
         GameObject.Find("AreaTwo").GetComponent<AreaTwo>().Deactivate();
         var bumpers = area.GetComponentsInChildren<Bumper>(true);
@@ -160,9 +177,17 @@ public class GameManager : MonoBehaviour
     {
         var area = GameObject.Find("AreaThree");
         if (!completedQuests.Contains(Quest.DiningHall))
-            GameObject.Find("AreaOne").GetComponent<AreaOne>().Activate();
+        {
+            var go = GameObject.Find("AreaOne").GetComponent<AreaOne>();
+            go.Activate();
+            go.ResetQuestTriggers();
+        }
         if (!completedQuests.Contains(Quest.LivingQuarters))
-            GameObject.Find("AreaTwo").GetComponent<AreaTwo>().Activate();
+        { 
+            var go = GameObject.Find("AreaTwo").GetComponent<AreaTwo>();
+            go.Activate();
+            go.ResetQuestTriggers();
+        }
 
         GameObject.Find("AreaThree").GetComponent<AreaThree>().Deactivate();
         var bumpers = area.GetComponentsInChildren<Bumper>(true);
