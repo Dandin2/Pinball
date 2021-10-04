@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Flipper2 : MonoBehaviour
@@ -47,17 +45,17 @@ public class Flipper2 : MonoBehaviour
 	private IEnumerator FlipFlippers()
     {
         float totalTime = 0.08f;
-        float currentTime = totalTime * transform.rotation.z / (endRotation + flipRotation);
+        float currentTime = totalTime * transform.rotation.z / flipRotation;
 
         while (currentTime < totalTime)
         {
             currentTime += Time.deltaTime;
-            //rb.MoveRotation(flipRotation * currentTime / totalTime);
-            transform.rotation = Quaternion.Euler(0, 0, (endRotation + flipRotation) * currentTime / totalTime);
+            rb.MoveRotation(flipRotation * currentTime / totalTime);
+            spriteHolder.transform.rotation = Quaternion.Euler(0, 0, flipRotation * currentTime / totalTime);
             yield return new WaitForEndOfFrame();
         }
-        //rb.SetRotation(endRotation + flipRotation);
-        transform.rotation = Quaternion.Euler(0, 0, endRotation + flipRotation);
+        rb.SetRotation(endRotation + flipRotation);
+        spriteHolder.transform.rotation = Quaternion.Euler(0, 0, endRotation + flipRotation);
 
         yield break;
     }
@@ -65,17 +63,17 @@ public class Flipper2 : MonoBehaviour
     private IEnumerator ReleaseFlippers()
     {
         float totalTime = 0.08f;
-        float currentTime = totalTime - (totalTime * transform.rotation.eulerAngles.z / endRotation);
+        float currentTime = totalTime - (totalTime * transform.rotation.eulerAngles.z / flipRotation);
 
         while (currentTime > 0)
         {
             currentTime -= Time.deltaTime;
-            //rb.MoveRotation(endRotation * currentTime / totalTime);
-            transform.rotation = Quaternion.Euler(0, 0, endRotation * currentTime / totalTime);
+            rb.MoveRotation(flipRotation * currentTime / totalTime);
+            spriteHolder.transform.rotation = Quaternion.Euler(0, 0, flipRotation * currentTime / totalTime);
             yield return new WaitForEndOfFrame();
         }
-        //rb.SetRotation(endRotation);
-        transform.rotation = Quaternion.Euler(0, 0, endRotation);
+        rb.SetRotation(endRotation);
+        spriteHolder.transform.rotation = Quaternion.Euler(0, 0, endRotation);
 
         yield break;
     }
