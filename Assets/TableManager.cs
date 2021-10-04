@@ -10,6 +10,7 @@ public class TableManager : MonoBehaviour
     public LevelTransition Transition2;
     public GameObject VictoryScreen;
     public Ring Ring;
+    public Syringes Syringes;
 
     public static TableManager Instance = null;
 
@@ -21,7 +22,14 @@ public class TableManager : MonoBehaviour
             Instance = this;
     }
 
-    
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.S))
+        {
+            CrackRing();
+        }
+    }
+
     public void ShowVictoryScreenThenQuit()
     {
         GameManager.Instance.Border.FadeOut();
@@ -56,6 +64,7 @@ public class TableManager : MonoBehaviour
     public void CrackRing()
     {
         Ring.GoToNextSprite();
+        Syringes.ActivateNextSyringe();
     }
 
 }
