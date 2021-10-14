@@ -10373,40 +10373,20 @@ PrefabInstance:
       value: Ball
       objectReference: {fileID: 0}
     - target: {fileID: 1743288992036089562, guid: 07f0f3c7ccccc9f4bbfd5eafc2ebb92e, type: 3}
-      propertyPath: disableOnResetPositionGOs.Array.size
-      value: 1
+      propertyPath: velocityLight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743288992036089562, guid: 07f0f3c7ccccc9f4bbfd5eafc2ebb92e, type: 3}
+      propertyPath: upGravityScale
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1743288992036089562, guid: 07f0f3c7ccccc9f4bbfd5eafc2ebb92e, type: 3}
       propertyPath: disableOnResetPositionGOs.Array.data[0]
       value: 
       objectReference: {fileID: 571466949}
-    - target: {fileID: 1743288992036089562, guid: 07f0f3c7ccccc9f4bbfd5eafc2ebb92e, type: 3}
-      propertyPath: disableOnResetPositionGOs.Array.data[1]
-      value: 
-      objectReference: {fileID: 1929610013}
-    - target: {fileID: 1743288992036089562, guid: 07f0f3c7ccccc9f4bbfd5eafc2ebb92e, type: 3}
-      propertyPath: disableOnResetPositionGOs.Array.data[2]
-      value: 
-      objectReference: {fileID: 1929610013}
-    - target: {fileID: 1743288992036089563, guid: 07f0f3c7ccccc9f4bbfd5eafc2ebb92e, type: 3}
-      propertyPath: m_Interpolate
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1743288992036089563, guid: 07f0f3c7ccccc9f4bbfd5eafc2ebb92e, type: 3}
       propertyPath: m_GravityScale
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 1743288992036089563, guid: 07f0f3c7ccccc9f4bbfd5eafc2ebb92e, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1743288992036089564, guid: 07f0f3c7ccccc9f4bbfd5eafc2ebb92e, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1743288992036089564, guid: 07f0f3c7ccccc9f4bbfd5eafc2ebb92e, type: 3}
-      propertyPath: m_RendererPriority
-      value: 2
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 1743288992036089565, guid: 07f0f3c7ccccc9f4bbfd5eafc2ebb92e, type: 3}
       propertyPath: m_Pivot.x
@@ -10443,14 +10423,6 @@ PrefabInstance:
     - target: {fileID: 1743288992036089565, guid: 07f0f3c7ccccc9f4bbfd5eafc2ebb92e, type: 3}
       propertyPath: m_SizeDelta.y
       value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1743288992036089565, guid: 07f0f3c7ccccc9f4bbfd5eafc2ebb92e, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1743288992036089565, guid: 07f0f3c7ccccc9f4bbfd5eafc2ebb92e, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 1743288992036089565, guid: 07f0f3c7ccccc9f4bbfd5eafc2ebb92e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10499,14 +10471,6 @@ PrefabInstance:
     - target: {fileID: 1743288992036089565, guid: 07f0f3c7ccccc9f4bbfd5eafc2ebb92e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7595916639896310507, guid: 07f0f3c7ccccc9f4bbfd5eafc2ebb92e, type: 3}
-      propertyPath: m_Pitch
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7595916639896310507, guid: 07f0f3c7ccccc9f4bbfd5eafc2ebb92e, type: 3}
-      propertyPath: m_Volume
-      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07f0f3c7ccccc9f4bbfd5eafc2ebb92e, type: 3}
@@ -18267,8 +18231,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d06086bc499d040b08b0e09455899b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minForce: 600
-  maxForce: 800
+  minForce: 1000
+  maxForce: 1500
   anim: {fileID: 1091716767}
   directionalTransform: {fileID: 1991648764}
   PointsToAdd: 50
@@ -18285,7 +18249,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.6176224, y: -0.8402362}
+  m_Offset: {x: -15.029739, y: 10.901291}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -18296,7 +18260,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 489.4815, y: 15.310733}
+  m_Size: {x: 524.77625, y: 38.79379}
   m_EdgeRadius: 0
 --- !u!82 &1728014303
 AudioSource:
@@ -24701,7 +24665,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.6176224, y: -0.8402362}
+  m_Offset: {x: -24.041687, y: 2.9934092}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -24712,7 +24676,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 489.4815, y: 15.310733}
+  m_Size: {x: 542.8001, y: 22.978025}
   m_EdgeRadius: 0
 --- !u!114 &5407049560282112613
 MonoBehaviour:
@@ -24726,8 +24690,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d06086bc499d040b08b0e09455899b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minForce: 700
-  maxForce: 900
+  minForce: 1000
+  maxForce: 1500
   anim: {fileID: 1818311562202998390}
   directionalTransform: {fileID: 8737824515692769149}
   PointsToAdd: 50
