@@ -10,6 +10,7 @@ public class AreaThree : MonoBehaviour
     public List<Bumper> Bumpers;
     public GameObject TablePrefab;
     public OrderlyFight OrderlyFight;
+    public GameObject Shadow;
 
     private int activatedTriggers = 0;
     private List<GameObject> tables = new List<GameObject>();
@@ -28,6 +29,7 @@ public class AreaThree : MonoBehaviour
         foreach (Trigger t in QuestTriggers)
             t.TurnOff();
         Arrow.gameObject.SetActive(false);
+        Shadow.SetActive(true);
     }
 
     public void Activate()
@@ -36,6 +38,7 @@ public class AreaThree : MonoBehaviour
             t.TurnOn();
         foreach (GameObject go in targetArrows)
             go.SetActive(true);
+        Shadow.SetActive(false);
     }
 
     private void OnTriggerActivationChange(Trigger t)
