@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,10 +13,13 @@ public class GameManager : MonoBehaviour
     public Border Border;
 
     public List<Quest> completedQuests = new List<Quest>();
-    public bool activeQuest = false;
+
+
+	public bool activeQuest = false;
 
     private int totalPoints = 0;
-    private int livesUsed = 0;
+    private int lives = 0;
+    internal bool useLives = true;
     private int level = 0;
 
     void Awake()
@@ -30,6 +34,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    internal int GetLives()
+    {
+        return lives;
     }
 
     public void SetAreaOne(AreaOne ao)
@@ -62,9 +71,10 @@ public class GameManager : MonoBehaviour
         totalPoints += pointsToAdd;
         Border.SetScoreText(totalPoints);
     }
+
     public void UseLife()
     {
-        livesUsed++;
+        lives--;
     }
 
     public void ActivateQuestOne()
