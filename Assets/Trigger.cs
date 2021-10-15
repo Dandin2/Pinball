@@ -19,6 +19,7 @@ public class Trigger : MonoBehaviour
     public ButtonClickedEvent OnTriggerEvent;
     private Action triggerAction;
     private AudioSource audioSource;
+    private Collider2D collider;
 
     private Animator animator;
 
@@ -27,7 +28,9 @@ public class Trigger : MonoBehaviour
 	private void Awake()
 	{
         animator = GetComponent<Animator>();
-	}
+        collider = GetComponent<Collider2D>();
+
+    }
 
 	public void Update()
     {
@@ -73,7 +76,9 @@ public class Trigger : MonoBehaviour
         isTriggered = false;
         //GetComponent<SpriteRenderer>().color = isTriggered ? activatedColor : defaultColor;
         animator.SetBool("isActive", false);
+        animator.SetBool("isOn", false);
         canTrigger = false;
+        collider.enabled = false;
     }
 
     //If you know what I mean winkyface
@@ -81,13 +86,14 @@ public class Trigger : MonoBehaviour
     {
         animator.SetBool("isActive", true);
         canTrigger = true;
+        collider.enabled = true;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+	private void OnCollisionEnter2D(Collision2D collision)
     {
         if (canTrigger)
         {
-            if (collision.name == "Ball")
+            if (collision.gameObject.name == "Ball")
             {
                 audioSource.Play();
                 GameManager.Instance.UpdatePoints(PointValue);

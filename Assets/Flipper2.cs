@@ -44,7 +44,7 @@ public class Flipper2 : MonoBehaviour
 
 	private IEnumerator FlipFlippers()
     {
-        float totalTime = 0.08f;
+        float totalTime = 0.05f;
         float currentTime = totalTime * transform.rotation.z / flipRotation;
 
         while (currentTime < totalTime)

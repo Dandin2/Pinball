@@ -6,16 +6,20 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
 	Rigidbody2D rb => GetComponent<Rigidbody2D>();
+	public float upGravityScale;
+	public float velocityLight;
 
 	public List<GameObject> disableOnResetPositionGOs;
 
 	private Vector2 startingPosition;
 	private AudioSource audioSource;
+	private float maxGravityScale;
 
 	private void Start()
 	{
 		startingPosition = transform.position;
 		audioSource = GetComponent<AudioSource>();
+		maxGravityScale = rb.gravityScale;
 	}
 
 	internal void ResetPosition()
@@ -39,10 +43,10 @@ public class Ball : MonoBehaviour
 			audioSource.Stop();
 		}
 
-		if (rb.velocity.y > 0)
-			rb.gravityScale = 50;
+		if (rb.velocity.y > velocityLight)
+			rb.gravityScale = upGravityScale;
 		else
-			rb.gravityScale = 100;
+			rb.gravityScale = maxGravityScale;
 	}
 
 	public void Suspend()
