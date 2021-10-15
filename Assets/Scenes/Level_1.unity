@@ -10374,11 +10374,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1743288992036089562, guid: 07f0f3c7ccccc9f4bbfd5eafc2ebb92e, type: 3}
       propertyPath: velocityLight
-      value: 10
+      value: 750
       objectReference: {fileID: 0}
     - target: {fileID: 1743288992036089562, guid: 07f0f3c7ccccc9f4bbfd5eafc2ebb92e, type: 3}
       propertyPath: upGravityScale
-      value: 50
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1743288992036089562, guid: 07f0f3c7ccccc9f4bbfd5eafc2ebb92e, type: 3}
       propertyPath: disableOnResetPositionGOs.Array.data[0]
@@ -10386,7 +10386,7 @@ PrefabInstance:
       objectReference: {fileID: 571466949}
     - target: {fileID: 1743288992036089563, guid: 07f0f3c7ccccc9f4bbfd5eafc2ebb92e, type: 3}
       propertyPath: m_GravityScale
-      value: 500
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 1743288992036089565, guid: 07f0f3c7ccccc9f4bbfd5eafc2ebb92e, type: 3}
       propertyPath: m_Pivot.x
