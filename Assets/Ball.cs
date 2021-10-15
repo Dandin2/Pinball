@@ -26,7 +26,7 @@ public class Ball : MonoBehaviour
 	{
 		transform.position = startingPosition;
 		rb.velocity = Vector3.zero;
-		GameManager.Instance.UseLife();
+		LivesManager.Instance.UseLife();
 		foreach (GameObject go in disableOnResetPositionGOs)
 			go.SetActive(false);
 		GameManager.Instance.Border.SetObjectiveText("Press and hold space bar to launch.", false);
