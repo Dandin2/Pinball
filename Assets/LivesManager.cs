@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LivesManager : MonoBehaviour
 {
@@ -51,6 +52,7 @@ public class LivesManager : MonoBehaviour
 			if (lives == 0)
 			{
 				//game over
+				SceneManager.LoadScene("HighScoreScreen");
 			}
 		}
 	}
