@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class TiltManager : MonoBehaviour
 {
-    public KeyCode LeftTiltKey;
-    public KeyCode RightTiltKey;
+    //public KeyCode LeftTiltKey;
+    //public KeyCode RightTiltKey;
     public float bumpDistance;
     public float bumpTime;
     public GameObject Screen;
@@ -19,11 +19,11 @@ public class TiltManager : MonoBehaviour
     {
         if (bumpCoroutine == null)
         {
-            if (Input.GetKeyDown(LeftTiltKey))
+            if (Input.GetKeyDown(ControlsManager.Instance.LeftTilt))
             {
                 bumpCoroutine = StartCoroutine(BumpTableLeft());
             }
-            else if (Input.GetKeyDown(RightTiltKey))
+            else if (Input.GetKeyDown(ControlsManager.Instance.RightTilt))
             {
                 bumpCoroutine = StartCoroutine(BumpTableRight());
             }

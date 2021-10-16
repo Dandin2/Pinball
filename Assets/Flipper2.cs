@@ -7,13 +7,20 @@ public class Flipper2 : MonoBehaviour
     public float flipRotation;
     public Rigidbody2D rb;
     public GameObject spriteHolder;
-    public KeyCode activationKey;
+    //public KeyCode activationKey;
+    public FlipperSide side;
 
+    private KeyCode control;
     private float endRotation;
     private Coroutine activatingRoutine;
     private Coroutine deactivatingRoutine;
     private AudioSource audioSource;
 
+
+    private void Awake()
+    {
+        control = (side == FlipperSide.Left ? ControlsManager.Instance.LeftFlipper : ControlsManager.Instance.RightFlipper);
+    }
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -22,7 +29,7 @@ public class Flipper2 : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
-        if (Input.GetKeyDown(activationKey))
+        if (Input.GetKeyDown(control))
         {
             if (activatingRoutine != null)
             {
@@ -31,7 +38,7 @@ public class Flipper2 : MonoBehaviour
             audioSource.Play();
             activatingRoutine = StartCoroutine(FlipFlippers());
         }
-        else if (Input.GetKeyUp(activationKey))
+        else if (Input.GetKeyUp(control))
         {
             if (deactivatingRoutine != null)
             {
@@ -77,4 +84,10 @@ public class Flipper2 : MonoBehaviour
 
         yield break;
     }
+}
+
+public enum FlipperSide
+{
+    Left,
+    Right
 }

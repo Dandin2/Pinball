@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Plunger : MonoBehaviour
 {
-    public KeyCode PlungerActivationKey;
+    //public KeyCode PlungerActivationKey;
     public Rigidbody2D PlungerRigidBody;
     public bool IsAutoPlunger;
     public GameObject AutoPlungerBlocker;
@@ -27,7 +27,7 @@ public class Plunger : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if((!IsAutoPlunger && Input.GetKey(PlungerActivationKey)) || (IsAutoPlunger && autoStart))
+        if ((!IsAutoPlunger && Input.GetKey(ControlsManager.Instance.Launcher)) || (IsAutoPlunger && autoStart))
 		{
             AddPower();
             started = true;

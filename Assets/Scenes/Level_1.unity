@@ -9456,6 +9456,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2057695591593012969, guid: 142ccb112f225a74ca90de9f08bf1295, type: 3}
+      propertyPath: side
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2057695591593012969, guid: 142ccb112f225a74ca90de9f08bf1295, type: 3}
       propertyPath: flipRotation
       value: -60
       objectReference: {fileID: 0}
@@ -9582,8 +9586,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1970e6a7d5ebc6945a9cc5c6c848a35b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LeftTiltKey: 304
-  RightTiltKey: 303
   bumpDistance: 25
   bumpTime: 0.3
   Screen: {fileID: 977844861}
@@ -11492,6 +11494,10 @@ PrefabInstance:
     - target: {fileID: 2057695591593012968, guid: 142ccb112f225a74ca90de9f08bf1295, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2057695591593012969, guid: 142ccb112f225a74ca90de9f08bf1295, type: 3}
+      propertyPath: side
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2057695591593012969, guid: 142ccb112f225a74ca90de9f08bf1295, type: 3}
       propertyPath: flipRotation
@@ -14406,8 +14412,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1970e6a7d5ebc6945a9cc5c6c848a35b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LeftTiltKey: 304
-  RightTiltKey: 303
   bumpDistance: 25
   bumpTime: 0.3
   Screen: {fileID: 1363568885}
@@ -19617,6 +19621,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2057695591593012969, guid: 142ccb112f225a74ca90de9f08bf1295, type: 3}
+      propertyPath: side
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2057695591593012969, guid: 142ccb112f225a74ca90de9f08bf1295, type: 3}
       propertyPath: flipRotation
       value: -60
       objectReference: {fileID: 0}
@@ -20334,8 +20342,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1970e6a7d5ebc6945a9cc5c6c848a35b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LeftTiltKey: 304
-  RightTiltKey: 303
   bumpDistance: 25
   bumpTime: 0.3
   Screen: {fileID: 1938663158}

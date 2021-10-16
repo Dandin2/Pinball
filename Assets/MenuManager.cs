@@ -7,6 +7,23 @@ public class MenuManager : MonoBehaviour
 {
     public void StartButtonClicked()
 	{
+		GameManager.Instance.gameMode = GameMode.Story;
 		SceneManager.LoadScene("Level_1");
 	}
+
+	public void FreePlayButtonClicked()
+	{
+		GameManager.Instance.gameMode = GameMode.FreePlay;
+		SceneManager.LoadScene("Level_1");
+	}
+
+	public void TimeAttackButtonClicked()
+    {
+
+    }
+
+	public void QuitButtonClicked()
+    {
+		Application.Quit();
+    }
 }

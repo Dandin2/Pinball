@@ -38,12 +38,12 @@ public class Ring : MonoBehaviour
 
 	private void Update()
 	{
-		if(Input.GetKeyDown(TiltLeft))
+		if(Input.GetKeyDown(ControlsManager.Instance.LeftTilt))
 		{
 			if (ringState != State.Left)
 				ringState--;
 		}
-		else if (Input.GetKeyDown(TiltRight))
+		else if (Input.GetKeyDown(ControlsManager.Instance.RightTilt))
 		{
 			if (ringState != State.Right)
 				ringState++;
