@@ -15,61 +15,66 @@ public class LayerEditor : MonoBehaviour
         if (collision.name == "Ball")
         {
 
-            ConditionalEnable ce = null;
+            List<ConditionalEnable> ce = new List<ConditionalEnable>();
             Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
 
             //if (collision.transform.position.x > transform.position.x)
-            //{
-            //    ce = conditions.Where(x => x.condition == InteractCondition.EnterRight).FirstOrDefault();
-            //}
+            //    ce.Add(conditions.Where(x => x.condition == InteractCondition.EnterRight).FirstOrDefault());
             //else if (collision.transform.position.x < transform.position.x)
-            //{
-            //    ce = conditions.Where(x => x.condition == InteractCondition.EnterLeft).FirstOrDefault();
-            //}
+            //    ce.Add(conditions.Where(x => x.condition == InteractCondition.EnterLeft).FirstOrDefault());
 
             //if (collision.transform.position.y > transform.position.y)
-            //{
-            //    ce = conditions.Where(x => x.condition == InteractCondition.EnterTop).FirstOrDefault();
-            //}
+            //    ce.Add(conditions.Where(x => x.condition == InteractCondition.EnterTop).FirstOrDefault());
             //else if (collision.transform.position.y < transform.position.y)
-            //{
-            //    ce = conditions.Where(x => x.condition == InteractCondition.EnterBottom).FirstOrDefault();
-            //}
+            //    ce.Add(conditions.Where(x => x.condition == InteractCondition.EnterBottom).FirstOrDefault());
 
-            if (Math.Abs(rb.velocity.x) > Math.Abs(rb.velocity.y)) //collision.transform.position.x > transform.position.x)
+
+            if (rb.velocity.x > 0)
             {
-                if (rb.velocity.x > 0)
-                    ce = conditions.Where(x => x.condition == InteractCondition.EnterLeft).FirstOrDefault();
-                else
-                    ce = conditions.Where(x => x.condition == InteractCondition.EnterRight).FirstOrDefault();
+                ConditionalEnable x = conditions.Where(x => x.condition == InteractCondition.EnterLeft).FirstOrDefault();
+                if (x != null)
+                    ce.Add(x);
             }
             else
             {
-                if (rb.velocity.y > 0)
-                    ce = conditions.Where(x => x.condition == InteractCondition.EnterBottom).FirstOrDefault();
-                else
-                    ce = conditions.Where(x => x.condition == InteractCondition.EnterTop).FirstOrDefault();
+                ConditionalEnable x = conditions.Where(x => x.condition == InteractCondition.EnterRight).FirstOrDefault();
+                if (x != null)
+                    ce.Add(x);
             }
 
-            if (ce != null)
+            if (rb.velocity.y > 0)
+            {
+                ConditionalEnable x = conditions.Where(x => x.condition == InteractCondition.EnterBottom).FirstOrDefault();
+                if (x != null)
+                    ce.Add(x);
+            }
+            else
+            {
+                ConditionalEnable x = conditions.Where(x => x.condition == InteractCondition.EnterTop).FirstOrDefault();
+                if (x != null)
+                    ce.Add(x);
+            }
+
+            if (ce.Count > 0)
             {
                 if (enableDisableHitboxes)
                 {
-                    foreach (GameObject go in ce.enableHitboxes)
+                    foreach (GameObject go in ce.SelectMany(x => x.enableHitboxes))
                         go.GetComponent<PolygonCollider2D>().enabled = true;
-                    foreach (GameObject go in ce.disableHitboxes)
+                    foreach (GameObject go in ce.SelectMany(x => x.disableHitboxes))
                         go.GetComponent<PolygonCollider2D>().enabled = false;
                 }
                 else if (enableDisableGameObjects)
                 {
-                    foreach (GameObject go in ce.enableHitboxes)
+                    foreach (GameObject go in ce.SelectMany(x => x.enableHitboxes))
                         go.SetActive(true);
-                    foreach (GameObject go in ce.disableHitboxes)
+                    foreach (GameObject go in ce.SelectMany(x => x.disableHitboxes))
                         go.SetActive(false);
                 }
 
-                if (ce.bridge.sprite != null)
-                    ce.bridge.sprite.sortingOrder = ce.bridge.orderInLayer;
+                foreach (ConditionalEnable test in ce)
+                    if (test.bridge.sprite != null)
+                        test.bridge.sprite.sortingOrder = test.bridge.orderInLayer;
             }
         }
     }
@@ -78,42 +83,55 @@ public class LayerEditor : MonoBehaviour
     {
         if (collision.name == "Ball")
         {
-            ConditionalEnable ce = null;
+            List<ConditionalEnable> ce = new List<ConditionalEnable>();
             Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
-            if (Math.Abs(rb.velocity.x) > Math.Abs(rb.velocity.y)) //collision.transform.position.x > transform.position.x)
+
+            if (rb.velocity.x > 0)
             {
-                if (rb.velocity.x > 0)
-                    ce = conditions.Where(x => x.condition == InteractCondition.ExitRight).FirstOrDefault();
-                else
-                    ce = conditions.Where(x => x.condition == InteractCondition.ExitLeft).FirstOrDefault();
+                ConditionalEnable x = conditions.Where(x => x.condition == InteractCondition.ExitRight).FirstOrDefault();
+                if (x != null)
+                    ce.Add(x);
             }
             else
             {
-                if (rb.velocity.y > 0)
-                    ce = conditions.Where(x => x.condition == InteractCondition.ExitTop).FirstOrDefault();
-                else
-                    ce = conditions.Where(x => x.condition == InteractCondition.ExitBottom).FirstOrDefault();
+                ConditionalEnable x = conditions.Where(x => x.condition == InteractCondition.ExitLeft).FirstOrDefault();
+                if (x != null)
+                    ce.Add(x);
             }
 
-            if (ce != null)
+            if (rb.velocity.y > 0)
+            {
+                ConditionalEnable x = conditions.Where(x => x.condition == InteractCondition.ExitTop).FirstOrDefault();
+                if (x != null)
+                    ce.Add(x);
+            }
+            else
+            {
+                ConditionalEnable x = conditions.Where(x => x.condition == InteractCondition.ExitBottom).FirstOrDefault();
+                if (x != null)
+                    ce.Add(x);
+            }
+
+            if (ce.Count > 0)
             {
                 if (enableDisableHitboxes)
                 {
-                    foreach (GameObject go in ce.enableHitboxes)
+                    foreach (GameObject go in ce.SelectMany(x => x.enableHitboxes))
                         go.GetComponent<PolygonCollider2D>().enabled = true;
-                    foreach (GameObject go in ce.disableHitboxes)
+                    foreach (GameObject go in ce.SelectMany(x => x.disableHitboxes))
                         go.GetComponent<PolygonCollider2D>().enabled = false;
                 }
                 else if (enableDisableGameObjects)
                 {
-                    foreach (GameObject go in ce.enableHitboxes)
+                    foreach (GameObject go in ce.SelectMany(x => x.enableHitboxes))
                         go.SetActive(true);
-                    foreach (GameObject go in ce.disableHitboxes)
+                    foreach (GameObject go in ce.SelectMany(x => x.disableHitboxes))
                         go.SetActive(false);
                 }
 
-                if (ce.bridge.sprite != null)
-                    ce.bridge.sprite.sortingOrder = ce.bridge.orderInLayer;
+                foreach (ConditionalEnable test in ce)
+                    if (test.bridge.sprite != null)
+                        test.bridge.sprite.sortingOrder = test.bridge.orderInLayer;
             }
         }
     }
