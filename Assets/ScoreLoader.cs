@@ -23,18 +23,17 @@ public class ScoreLoader : MonoBehaviour
 
 	private void InitializeScoreboard()
 	{
-        // Load prefabs for the high scores.
+        // TODO: Load high scores from save file
         highScores = LoadMockHighScores();
+
+        // TODO: check if this score deserves to be in the list. Then have a input pop up for the user to enter their name.
+        CreateNewScore("MyCurrentScore", GameManager.Instance.GetPoints());
+
         highScores = highScores.OrderByDescending(x => x.Score).ToList();
 
-        var currentPlayerHighScore = GameManager.Instance.GetPoints();
         // initialize the prefabs for each high score
         foreach (var score in highScores)
         {
-            if (score.Score < currentPlayerHighScore)
-            {
-                //instantiate a EnterScorePrefab that has inputs for name and score.
-            }
             var prefab = Instantiate(ScorePrefab, ScoreBoard);
             var children = prefab.GetComponentsInChildren<Text>();
             children[0].text = score.Name;
