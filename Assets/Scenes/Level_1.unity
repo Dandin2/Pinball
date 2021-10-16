@@ -3566,7 +3566,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: {fileID: 1938663158}
-  nextLevel: {fileID: 1363568885}
+  nextStoryLevel: {fileID: 1363568885}
+  nextFreePlayLevel: {fileID: 1363568885}
+  nextTimeAttackLevel: {fileID: 1363568885}
   transitionTime: 4
 --- !u!58 &407462335
 CircleCollider2D:
@@ -18052,7 +18054,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: {fileID: 1363568885}
-  nextLevel: {fileID: 977844861}
+  nextStoryLevel: {fileID: 977844861}
+  nextFreePlayLevel: {fileID: 1938663158}
+  nextTimeAttackLevel: {fileID: 1363568885}
   transitionTime: 4
 --- !u!224 &1683311056
 RectTransform:

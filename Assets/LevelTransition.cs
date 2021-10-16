@@ -6,10 +6,30 @@ using UnityEngine;
 public class LevelTransition : MonoBehaviour
 {
     public GameObject currentLevel;
-    public GameObject nextLevel;
+    public GameObject nextStoryLevel;
+    public GameObject nextFreePlayLevel;
+    public GameObject nextTimeAttackLevel;
     public float transitionTime;
 
-    public void SetActive(bool active)
+    private GameObject nextLevel;
+
+	private void Start()
+	{
+        if (GameManager.Instance.gameMode == GameMode.Story)
+        {
+            nextLevel = nextStoryLevel;
+        }
+        else if (GameManager.Instance.gameMode == GameMode.FreePlay)
+        {
+            nextLevel = nextFreePlayLevel;
+        }
+        else // time attack
+        {
+            nextLevel = nextTimeAttackLevel;
+        }
+    }
+
+	public void SetActive(bool active)
     {
         GetComponent<SpriteRenderer>().enabled = true;
         GetComponent<CircleCollider2D>().enabled = active;
@@ -34,6 +54,7 @@ public class LevelTransition : MonoBehaviour
 
         List<SpriteRenderer> fadeOut = currentLevel.GetComponentsInChildren<SpriteRenderer>().ToList();
         List<SpriteRenderer> fadeIn = nextLevel.GetComponentsInChildren<SpriteRenderer>().ToList();
+
 
         foreach (SpriteRenderer sr in fadeIn)
             sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0);
