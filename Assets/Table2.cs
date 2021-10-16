@@ -50,10 +50,20 @@ public class Table2 : MonoBehaviour
 
             if (brokenTables >= tables.Count)
             {
-                GameManager.Instance.Border.SetOrderlyText(1, "Going down?", 3);
-                GameManager.Instance.Border.SetOrderlyText(2, "Going down?", 3);
-                GameManager.Instance.Border.SetOrderlyText(3, "Going down?", 3);
-                GameManager.Instance.GoToFinalTable();
+                if (GameManager.Instance.gameMode == GameMode.TimeAttack)
+                {
+                    GameManager.Instance.Border.SetOrderlyText(1, "Woo!", 3);
+                    GameManager.Instance.Border.SetOrderlyText(2, "Woo!", 3);
+                    GameManager.Instance.Border.SetOrderlyText(3, "Woo!", 3);
+                    GameManager.Instance.EndTimeAttack();
+                }
+                else
+                {
+                    GameManager.Instance.Border.SetOrderlyText(1, "Going down?", 3);
+                    GameManager.Instance.Border.SetOrderlyText(2, "Going down?", 3);
+                    GameManager.Instance.Border.SetOrderlyText(3, "Going down?", 3);
+                    GameManager.Instance.GoToFinalTable();
+                }
             }
         }
     }

@@ -7,6 +7,7 @@ internal enum GameMode
 {
     Story = 0,
     FreePlay = 1,
+    TimeAttack = 2
 }
 public class GameManager : MonoBehaviour
 {
@@ -256,5 +257,26 @@ public class GameManager : MonoBehaviour
     public void Victory()
     {
         TableManager.Instance.ShowVictoryScreenThenQuit();
+    }
+
+
+    public void StartTimeAttack()
+    {
+        StartCoroutine(WaitThenStartTimeAttack());
+    }
+
+    public void EndTimeAttack()
+    {
+        Border.EndTimer();
+    }
+
+    private IEnumerator WaitThenStartTimeAttack()
+    {
+        yield return new WaitForSeconds(1);
+        yield return StartCoroutine(TableManager.Instance.DoTheCountdown(null));
+        Border.StartTimer();
+        TableManager.Instance.Ball.UnSuspend();
+
+        yield break;
     }
 }

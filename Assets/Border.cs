@@ -10,7 +10,9 @@ public class Border : MonoBehaviour
     public Text OrderlyTwoText;
     public Text OrderlyThreeText;
     public Text ObjectiveText;
+
     public Text ScoreText;
+    public Text TimeText;
 
     public GameObject o1Fade;
     public GameObject o2Fade;
@@ -21,12 +23,29 @@ public class Border : MonoBehaviour
     private string baseOrderly2Text = "";
     private string baseOrderly3Text = "";
 
+    private float elapsedTime = 0f;
+    private Coroutine OrderlyOne;
+    private Coroutine OrderlyTwo;
+    private Coroutine OrderlyThree;
+    private Coroutine Timer;
+
     private void Awake()
     {
         if (GameManager.Instance != null)
         {
             GameManager.Instance.SetBorder(this);
-            GameManager.Instance.SetPoints(0);
+            if(GameManager.Instance.gameMode == GameMode.TimeAttack)
+            {
+                ScoreText.transform.parent.gameObject.SetActive(false);
+                TimeText.transform.parent.gameObject.SetActive(true);
+                TimeText.text = TimeSpan.FromSeconds(0).ToString("mm':'ss':'ff");
+            }
+            else
+            {
+                ScoreText.transform.parent.gameObject.SetActive(true);
+                TimeText.transform.parent.gameObject.SetActive(false);
+                GameManager.Instance.SetPoints(0);
+            }
         }
         else
         {
@@ -48,6 +67,31 @@ public class Border : MonoBehaviour
         ScoreText.text = score.ToString();
     }
 
+    public void StartTimer()
+    {
+        Timer = StartCoroutine(TimerGo());
+    }
+
+    private IEnumerator TimerGo()
+    {
+        while(true)
+        {
+            yield return new WaitForEndOfFrame();
+            elapsedTime += Time.deltaTime;
+            TimeText.text = TimeSpan.FromSeconds(elapsedTime).ToString("mm':'ss':'ff");
+        }
+    }
+
+    public void EndTimer()
+    {
+        StopCoroutine(Timer);
+    }
+
+    public void ResetTimer()
+    {
+        elapsedTime = 0;
+    }
+
     public void SetOrderlyText(int orderly, string text, float time = 0)
     {
         if (orderly == 1)
@@ -55,8 +99,10 @@ public class Border : MonoBehaviour
             OrderlyOneText.text = text;
             if (time > 0)
             {
-                StopAllCoroutines();
-                StartCoroutine(WaitThenClearText(OrderlyOneText, time, baseOrderly1Text));
+                if (OrderlyOne != null)
+                    StopCoroutine(OrderlyOne);
+
+                OrderlyOne = StartCoroutine(WaitThenClearText(OrderlyOneText, time, baseOrderly1Text));
             }
             else
                 baseOrderly1Text = text;
@@ -66,8 +112,10 @@ public class Border : MonoBehaviour
             OrderlyTwoText.text = text;
             if (time > 0)
             {
-                StopAllCoroutines();
-                StartCoroutine(WaitThenClearText(OrderlyTwoText, time, baseOrderly2Text));
+                if (OrderlyTwo != null)
+                    StopCoroutine(OrderlyTwo);
+
+                OrderlyTwo = StartCoroutine(WaitThenClearText(OrderlyTwoText, time, baseOrderly2Text));
             }
             else
                 baseOrderly2Text = text;
@@ -77,8 +125,10 @@ public class Border : MonoBehaviour
             OrderlyThreeText.text = text;
             if (time > 0)
             {
-                StopAllCoroutines();
-                StartCoroutine(WaitThenClearText(OrderlyThreeText, time, baseOrderly3Text));
+                if (OrderlyThree != null)
+                    StopCoroutine(OrderlyThree);
+
+                OrderlyThree = StartCoroutine(WaitThenClearText(OrderlyThreeText, time, baseOrderly3Text));
             }
             else
                 baseOrderly3Text = text;

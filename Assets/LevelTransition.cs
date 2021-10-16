@@ -31,7 +31,6 @@ public class LevelTransition : MonoBehaviour
         Vector2 ballTarget = transform.position;
 
         Vector2 directionToMoveBall = (ballTarget - ballLocation);
-        Debug.Log("Ball direction move: " + directionToMoveBall);
 
         List<SpriteRenderer> fadeOut = currentLevel.GetComponentsInChildren<SpriteRenderer>().ToList();
         List<SpriteRenderer> fadeIn = nextLevel.GetComponentsInChildren<SpriteRenderer>().ToList();
@@ -47,7 +46,6 @@ public class LevelTransition : MonoBehaviour
             {
                 ballLocation += directionToMoveBall * Time.deltaTime * 0.3f;
                 ball.transform.position = ballLocation;
-                Debug.Log("Ball location: " + ballLocation);
             }
 
             float alpha = currentTime / transitionTime;
@@ -64,11 +62,17 @@ public class LevelTransition : MonoBehaviour
 
         currentLevel.SetActive(false);
         foreach (SpriteRenderer sr in fadeOut)
-            sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1);
+            sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0);
         foreach (SpriteRenderer sr in fadeIn)
             sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1);
 
         GameManager.Instance.StartNextLevel();
         yield break;
+    }
+
+    public void DoStuffInstantly()
+    {
+        currentLevel.SetActive(false);
+        nextLevel.SetActive(true);
     }
 }

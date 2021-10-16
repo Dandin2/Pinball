@@ -18,9 +18,10 @@ public class MenuManager : MonoBehaviour
 	}
 
 	public void TimeAttackButtonClicked()
-    {
-
-    }
+	{
+		GameManager.Instance.gameMode = GameMode.TimeAttack;
+		SceneManager.LoadScene("Level_1");
+	}
 
 	public void QuitButtonClicked()
     {
