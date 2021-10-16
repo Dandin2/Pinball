@@ -255,6 +255,6 @@ public class GameManager : MonoBehaviour
 
     public void Victory()
     {
-
+        TableManager.Instance.ShowVictoryScreenThenQuit();
     }
 }

@@ -39,7 +39,7 @@ public class TableManager : MonoBehaviour
             current += Time.deltaTime;
             VictoryScreen.GetComponentInChildren<Image>().color = new Color(0, 0, 0, current * 0.5f);
         }
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(6);
         SceneManager.LoadScene("TitleScreen");
     }
 
