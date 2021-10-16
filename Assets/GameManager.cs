@@ -70,6 +70,11 @@ public class GameManager : MonoBehaviour
         Border.SetScoreText(totalPoints);
     }
 
+    public int GetPoints()
+	{
+        return totalPoints;
+	}
+
     public void ActivateQuestOne()
     {
         //      var area = GameObject.Find("AreaOne");
