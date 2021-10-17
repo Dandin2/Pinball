@@ -23,12 +23,11 @@ public class GameManager : MonoBehaviour
 
     public bool activeQuest = false;
 
-    private int totalPoints = 0;
+	private int totalPoints = 0;
     private int level = 0;
 
     void Awake()
     {
-
         if (Instance == null)
         {
             Instance = this;
@@ -123,6 +122,11 @@ public class GameManager : MonoBehaviour
 
 
 
+    internal void ResetGame()
+    {
+        this.totalPoints = 0;
+        LivesManager.Instance.ResetLives();
+    }
 
 
 

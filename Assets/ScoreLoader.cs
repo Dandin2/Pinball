@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -21,7 +22,19 @@ public class ScoreLoader : MonoBehaviour
         InitializeScoreboard();       
     }
 
-	private void InitializeScoreboard()
+    public void MainMenu()
+	{
+        GameManager.Instance.ResetGame();
+        SceneManager.LoadScene("TitleScreen");
+    }
+
+    public void Replay()
+    {
+        GameManager.Instance.ResetGame();
+        SceneManager.LoadScene("Level_1");
+    }
+
+    private void InitializeScoreboard()
 	{
         // TODO: Load high scores from save file
         highScores = LoadMockHighScores();

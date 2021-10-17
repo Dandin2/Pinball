@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -57,4 +58,8 @@ public class LivesManager : MonoBehaviour
 		}
 	}
 
+	internal void ResetLives()
+	{
+		lives = 3;
+	}
 }
